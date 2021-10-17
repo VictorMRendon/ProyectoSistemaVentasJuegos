@@ -13,7 +13,11 @@
     <div class="container">
     <h1>Registro de nuevo usuario</h1>
     <ol>
-        <li>Nombre</li>
+        <form method="post" action="guarda_contacto.php" autocomplete="off">
+            <div class="form-group">
+              <label for="Nombre">Nombre</label>
+              <input type="text" class="form-control" id="Nombre" name="Nombre">
+            </div>
         <li>Apellidos</li>
         <li>Edad</li>
         <li>Sexo</li>
@@ -22,11 +26,7 @@
         <li>Email</li>
     </ol>
 
-    <form method="post" action="guarda_contacto.php" autocomplete="off">
-        <div class="form-group">
-          <label for="Nombre">Nombre</label>
-          <input type="text" class="form-control" id="Nombre" name="Nombre">
-        </div>
+    
 
     </div>
     <br><a href="RegistroCliente.html">Cuenta cliente</a></br>
