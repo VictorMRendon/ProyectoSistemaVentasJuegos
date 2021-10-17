@@ -12,12 +12,28 @@
 <body>
     <div class="container">
     <h1>Venta</h1>
-    <ol>
-    <li>Codigo</li>
-    <li>Descripcion</li>
-    <li>Costo</li>
-    <li>Cantidad</li>
-    </ol>
+    
+    <form method="post" action="guarda_contacto.php" autocomplete="off">
+        <div class="form-group">
+          <label for="Codigo">Codigo</label>
+          <input type="text" class="form-control" id="Codigo" name="Codigo">
+        </div>
+
+        <div class="form-group">
+            <label for="Descripcion">Descripcion</label>
+            <input type="text" class="form-control" id="Descripcion" name="Descripcion">
+        </div>
+
+        <div class="form-group">
+            <label for="Costo">Costo</label>
+            <input type="number" class="form-control" id="Costo" name="Costo">
+        </div>
+
+        <div class="form-group">
+            <label for="Cantidad">Cantidad</label>
+            <input type="number" class="form-control" id="Cantidad" name="Cantidad">
+        </div>
+    
 
     </div>
     <br><a href="RegistroUsuarios.html">Cuenta usuario</a></br>
