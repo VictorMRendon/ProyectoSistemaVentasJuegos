@@ -5,25 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" > 
 </head>
 <body>
-    <h1>Inicio de sesión</h1>
-    <h2>Prueba 2 de Victor</h2>
-    <h3>Prueba 3 </h3>
-    <h4>Ya vamonos</h4>
-    <h5>Actualizacion</h5>
-    <h6>Final</h6>
-    <h6>ya por favor</h6>
+    <link rel="stylesheet" href="Fondos/basico.css">
+    <div class="container text-center">
+        <h1 class="text-center mt-5 display-1 font-weight-bold">Inicio de sesión</h1>
+       <div class="rows">
+           <div class="col">
 
-    <form action="">
-        Nombre: <input type="text" id="nombreUsuario" name="NombreUsuario"> <br><br>
-        Usuario: <input type="text" id="usuario" name="Usuario"><br><br>
-        Contraseña: <input type="text" id="pasword" name="Pasword"><br><br>
-        <button id="btnEnviar" name="Enviar">Enviar</button>
-    </form>
-    
+                <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
+                    <form class=" needs-validation "  novalidate action="">
+                        <div class="form-group w-75 mx-auto">
+                            <label for="Email" class="label font-weight-bold">Correo Electronico:</label>
+                            <input type="email" class="form-control" id="Email" name="Email" placeholder="usuario@tiendavideo.com" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese su correo</div>
+                        </div>
+                        
+                        <div class="form-group w-50 mx-auto">
+                            
+                            <label for="contrasena" class="font-weight-bold">Contraseña:</label>
+                            <input type="password" class="form-control" id="idCliente" name="idCliente" placeholder="Ej3mpl01234" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese su contraseña</div>
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                        </div>
+                        
+                    </form>
+                </div>
+             </div>
+        </div>
+    </div>
 
     <br><br>
     <a href="RegistroUsuarios.html">Agregar nuevo usuario</a>
+
+    <script src="js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
+    <script> //scrip para validar campos
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
 </body>
 </html>
