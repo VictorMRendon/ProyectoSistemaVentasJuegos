@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de clientes</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" > 
+
+</head>
+<body>
+    <div class="container">
+    <h1>Registro de nuevo cliente</h1>
+    <link rel="stylesheet" href="Fondos/basico.css">
+    <div class="col-12 col-xl-6">
+    <form method="post" action="guarda_contacto.php" autocomplete="off">
+        
+        <div class="form-group">
+          <label for="Nombre">Nombre</label>
+          <input type="text" class="form-control" id="Nombre" name="Nombre">
+        </div>
+
+        <div class="form-group">
+            <label for="Apellidos">Apellidos</label>
+            <input type="text" class="form-control" id="Apellidos" name="Apellidos">
+        </div>
+
+        <div class="form-group">
+            <label for="Fecha de Nacimiento">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" id="Fecha de Nacimiento" name="Fecha de Nacimiento">
+        </div>
+
+        <h2>Sexo</h2>
+        <div class="form-group">
+            <label for="Sexo">Masculino</label>
+            <input type="radio" class="form-control" id="Sexo" name="Sexo">
+        </div>
+        <div class="form-group">
+            <label for="Sexo">Femenino</label>
+            <input type="radio" class="form-control" id="Sexo" name="Sexo">
+        </div>
+
+        <div class="form-group">
+        <label for="Telefono">Telefono</label>
+        <input type="tel" class="form-control" id="Telefono" name="Telefono">
+        </div>
+
+        <div class="form-group">
+            <label for="Direccion">Direccion</label>
+            <input type="text" class="form-control" id="Direccion" name="Direccion">
+            </div>
+        
+        <h3>Tipo de cliente</h3>
+        <div class="form-group">
+            <label for="Tipo de cliente">Regular</label>
+            <input type="radio" class="form-control" id="Tipo de cliente" name="Tipo de cliente">
+        </div>
+
+        <div class="form-group">
+            <label for="Tipo de cliente">Fanatico</label>
+            <input type="radio" class="form-control" id="Tipo de cliente" name="Tipo de cliente">
+        </div>
+
+        <div class="form-group">
+            <label for="idCliente">Contraseña</label>
+            <input type="password" class="form-control" id="idCliente" name="idCliente">
+        </div>
+
+        <br><button id="Enviar" name="Enviar" class="btn btn-primary">Enviar</button></br>
+        <br><a href="RegistroUsuarios.html">Cuenta usuario</a></br>
+        <br><a href="Compra.html">Compra</a></br>
+    </form>
+    </div>
+    </div>
+
+    <script src="js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
+
+</body>
+</html>
