@@ -15,40 +15,33 @@
     <link rel="stylesheet" href="Fondos/basico.css">
         <div class="col-12 col-xl-6">
         <form method="post" action="guarda_contacto.php" autocomplete="off">
+
             <div class="form-group">
               <label for="Nombre">Nombre</label>
               <input type="text" class="form-control" id="Nombre" name="Nombre">
             </div>
 
             <div class="form-group">
-                <label for="Apellidos">Apellidos</label>
-                <input type="text" class="form-control" id="Apellidos" name="Apellidos">
+                <label for="Email">Correo Electronico</label>
+                <input type="email" class="form-control" id="Email" name="Email">
             </div>
 
             <div class="form-group">
-                <label for="Edad">Edad</label>
-                <input type="datetime" class="form-control" id="Edad" name="Edad">
+                <label for="idUsuario">IdUsuario</label>
+                <input type="password" class="form-control" id="idUsuario" name="idUsuario">
             </div>
 
             <div class="form-group">
-                <label for="Sexo">Sexo</label>
-                <input type="text" class="form-control" id="Sexo" name="Sexo">
+                <label for="idCliente">Contraseña</label>
+                <input type="password" class="form-control" id="idCliente" name="idCliente">
             </div>
 
             <div class="form-group">
-            <label for="Telefono">Telefono</label>
-            <input type="tel" class="form-control" id="Telefono" name="Telefono">
-            </div>
-
-            <div class="form-group">
-                <label for="Direccion">Direccion</label>
-                <input type="text" class="form-control" id="Direccion" name="Direccion">
+                <label for="Nivel de Acceso">Nivel de Acceso</label>
+                <input type="number" class="form-control" id="Nivel de Acceso" name="Nivel de Acceso">
                 </div>
 
-            <div class="form-group">
-                <label for="Correo Electronico">Correo Electronico</label>
-                <input type="email" class="form-control" id="Correo Electronico" name="Correo Electronico">
-            </div>
+            
             <br><button id="Enviar" name="Enviar" class="btn btn-primary">Enviar</button></br>
         
         
