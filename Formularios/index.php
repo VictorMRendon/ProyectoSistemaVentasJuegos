@@ -1,6 +1,9 @@
 <?php 
 
 require "../scrips/conexion.php";
+
+session_start();
+
 if($_POST)
 {
     $correo = $_POST['Email'];
@@ -22,7 +25,7 @@ if($_POST)
             $_SESSION['nombre'] = $row['Nombre'];
             $_SESSION['NivelAcceso'] = $row['NivelAcceso'];
 
-            header("Location: principal.php");
+            header("Location: ../MenuPrincipal/principal.php");
 
         }
         else { echo "La contrasena no coincide.";}
