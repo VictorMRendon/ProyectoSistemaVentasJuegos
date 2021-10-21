@@ -1,6 +1,36 @@
-<$php 
+<?php 
 
-$>
+require "../scrips/conexion.php";
+if($_POST)
+{
+    $correo = $_POST['Email'];
+    $pasword = $_POST['Contra'];
+    $sql =  "select idUsuario, Nombre, Email, Contrasena, NivelAcceso from usuarios where Email='$correo'";
+
+    $resultado = $mysqli->query($sql);
+    $num = $resultado->num_rows;
+    //existe el usuario
+    if($num>0)
+    {
+        $row = $resultado->fetch_assoc();
+        $pasword_bd = $row['Contrasena']; //contra de la bd
+
+        $paswordCifrado = sha1($pasword); // contra del formulario
+        if($pasword_bd == $paswordCifrado)
+        {
+            $_SESSION['idUsuario'] = $row['idUsuario'];
+            $_SESSION['nombre'] = $row['Nombre'];
+            $_SESSION['NivelAcceso'] = $row['NivelAcceso'];
+
+            header("Location: principal.php");
+
+        }
+        else { echo "La contrasena no coincide.";}
+    }
+    else { echo "No existe el usuario"; }
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +50,7 @@ $>
            <div class="col">
 
                 <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
-                    <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+                    <form class=" needs-validation "  novalidate method="post" action="<?php echo $_SERVER['PHP_SELF']; ?> "> <!-- Formulario -->
                         <div class="form-group w-75 mx-auto"><!-- Email -->
                             <label for="Email" class="label font-weight-bold">Correo Electronico:</label>
                             <input type="email" class="form-control" id="Email" name="Email" placeholder="usuario@tiendavideo.com" autofocus required>
@@ -30,7 +60,7 @@ $>
                         
                         <div class="form-group w-50 mx-auto"><!-- Pasword -->
                             <label for="contrasena" class="font-weight-bold">Contraseña:</label>
-                            <input type="password" class="form-control" id="idCliente" name="idCliente" placeholder="Ej3mpl01234" required>
+                            <input type="password" class="form-control" id="Contra" name="Contra" placeholder="Ej3mpl01234" required>
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese su contraseña</div>
                         </div>
