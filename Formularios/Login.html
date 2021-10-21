@@ -16,14 +16,16 @@ $>
     <link rel="stylesheet" href="../Fondos/basico.css">
     <div class="container text-center">
         <h1 class="text-center mt-5 display-1 font-weight-bold">Inicio de sesión</h1>
-       <div class="rows">
+       <div class="rows"> <!-- Para hacer el cuadro de fondo -->
            <div class="col">
 
                 <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
                     <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+
                         <div class="form-group w-75 mx-auto"><!-- Email -->
                             <label for="Email" class="label font-weight-bold">Correo Electronico:</label>
                             <input type="email" class="form-control" id="Email" name="Email" placeholder="usuario@tiendavideo.com" autofocus required>
+                            <!-- Los warning -->
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese su correo</div>
                         </div>
