@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de usuarios</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" > 
+    <link rel="stylesheet" href="../css/bootstrap.min.css" > 
 
 </head>
 <body>
 <!--   -->
-<link rel="stylesheet" href="Fondos/basico.css">
+<link rel="stylesheet" href="../Fondos/basico.css">
     <div class="container text-center">
         <h1 class="text-center mt-5 display-3 font-weight-bold">Registro de nuevo usuario</h1>
        <div class="rows">
@@ -26,13 +26,15 @@
                         <div class="form-group w-75 mx-auto"> <!-- Nombre-->
                             <label for="Nombre" class="label font-weight-bold">Nombre de usuario:</label>
                             <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre(s) Apellidos" autofocus required>
-                          </div>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese su nombre de usuario.</div>
+                        </div>
 
                         <div class="form-group w-75 mx-auto"> <!-- Email -->
                             <label for="Email" class="label font-weight-bold">Correo Electronico:</label>
                             <input type="email" class="form-control" id="Email" name="Email" placeholder="usuario@tiendavideo.com" required>
                             <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese su correo</div>
+                            <div class="invalid-feedback">Ingrese su correo.</div>
                         </div>
                         
                         <div class="form-group w-50 mx-auto"> <!-- Pasword -->
@@ -51,6 +53,8 @@
                                 <option value="3">Gerente</option>
                                 <option value="4">Cajero</option>
                             </select>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Escoja una opción.</div>
                         </div>
 
                         <div class="form-group text-center"> <!-- Btn -->
@@ -102,9 +106,10 @@
     </div>
     </div>-->
     
-
-    <script src="js/jquery-3.5.1.slim.min.js" ></script>
-    <script src="js/bootstrap.bundle.min.js" ></script>
+    <br><br>
+    <a href="MainRegistros.html">Volver al menú</a>
+    <script src="../js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="../js/bootstrap.bundle.min.js" ></script>
     <script> //scrip para validar campos
         // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {

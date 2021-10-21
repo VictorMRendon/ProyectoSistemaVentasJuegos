@@ -4,38 +4,44 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de clientes</title>
+    <title>Empleados</title>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" > 
+    <link rel="stylesheet" href="../css/bootstrap.min.css" > 
 
 </head>
 <body>
 <!--   -->
-<link rel="stylesheet" href="Fondos/basico.css">
+<link rel="stylesheet" href="../Fondos/basico.css">
     <div class="container text-center">
-        <h1 class="text-center mt-5 display-3 font-weight-bold">Registro de nuevo cliente</h1>
+        <h1 class="text-center mt-5 display-3 font-weight-bold">Registro de nuevo empleado</h1>
        <div class="rows">
            <div class="col">
 
                 <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
-                    <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+                    <form class=" needs-validation "  novalidate method="POST" action=""> <!-- Formulario -->
 
                         <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="1">
+                        <input type="hidden" id="idEmpleado" name="idEmpleado" value="1">
                         
                         <div class="form-group w-75 mx-auto"> <!-- Nombre-->
                             <label for="Nombre" class="label font-weight-bold">Nombre(s):</label>
                             <input type="text" class="form-control" id="NombreCliente" name="Nombre" placeholder="Juan Pablo" autofocus required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese un nombre válido.</div>
                         </div>
 
                         <div class="form-group w-75 mx-auto"> <!-- Apellidos -->
                             <label for="Nombre" class="label font-weight-bold">Apellidos:</label>
                             <input type="text" class="form-control" id="ApellidosCliente" name="Apellidos" placeholder="Hernandez Garcia" autofocus required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese apellidos válido.</div>
                         </div>
 
                         <div class="form-group w-75 mx-auto"> <!-- Fecha Nacimiento -->
                             <label for="Fecha de Nacimiento" class="label font-weight-bold">Fecha de Nacimiento:</label>
                             <input type="date" class="form-control" id="Fecha de Nacimiento" name="Fecha de Nacimiento">
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Fecha inválida.</div>
                         </div>
 
                         <div class="form-group w-75 mx-auto"> <!-- Sexo -->
@@ -53,15 +59,19 @@
                         <div class="form-group w-75 mx-auto"> <!-- Telefono -->
                             <label for="Telefono" class="label font-weight-bold">Teléfono:</label>
                             <input type="tel" class="form-control" id="Telefono" name="Telefono" placeholder="8671224498" required maxlength="10">
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Número inválido.</div>
                         </div>
 
                         <div class="form-group h-75 mx-auto"><!-- Direccion -->
                             <label for="Direccion" class="label font-weight-bold">Dirección:</label>
                             <input type="text" class="form-control" id="Direccion" name="Direccion" placeholder="C. Palmera 5554, Col. El Nogal" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese una dirección válida.</div>
                         </div>
 
-                        <!-- 
-                        <div class="w-50 mx-auto"> <!-- Caja de opciones --
+                        <!-- -->
+                        <div class="w-50 mx-auto"> <!-- Caja de opciones -->
                             <label for="Nivel de Acceso" class="font-weight-bold">Nivel de Acceso:</label>
                             <select name="NivelAcc" id="NivelAccesso" class="custom-select form-select-lg mb-2" required>
                                 <option selected disabled>Escoja una opción...</option>
@@ -70,18 +80,10 @@
                                 <option value="3">Gerente</option>
                                 <option value="4">Cajero</option>
                             </select>
-                        </div>-->
-                        
-                        <div class="w-50 mx-auto"> <!-- Caja de opciones -->
-                            <label for="TipoCliente" class="font-weight-bold">Tipo de cliente:</label>
-                            <input class="form-control" list="datalistOptions" id="TipoCliente" placeholder="Seleccione un tipo..." required>
-                            <datalist id="datalistOptions">
-                            <option value="Ocacional">
-                            <option value="Frecuente">
-                            <option value="Leal">
-                            </datalist>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Escoja una opción.</div>
                         </div>
-
+                        
                         <div class="form-group text-center"> <!-- Btn -->
                             <button class="mt-3 btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
                         </div>
@@ -92,73 +94,10 @@
         </div>
     </div>
 
-    <!-- Rene 
-    <div class="container">
-    <h1>Registro de nuevo cliente</h1>
-    <link rel="stylesheet" href="Fondos/basico.css">
-    <div class="col-12 col-xl-6">
-    <form method="post" action="guarda_contacto.php" autocomplete="off">
-        
-        <div class="form-group">
-          <label for="Nombre">Nombre</label>
-          <input type="text" class="form-control" id="Nombre" name="Nombre">
-        </div>
-
-        <div class="form-group">
-            <label for="Apellidos">Apellidos</label>
-            <input type="text" class="form-control" id="Apellidos" name="Apellidos">
-        </div>
-
-        <div class="form-group">
-            <label for="Fecha de Nacimiento">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" id="Fecha de Nacimiento" name="Fecha de Nacimiento">
-        </div>
-
-        <h2>Sexo</h2>
-        <div class="form-group">
-            <label for="Sexo">Masculino</label>
-            <input type="radio" class="form-control" id="Sexo" name="Sexo">
-        </div>
-        <div class="form-group">
-            <label for="Sexo">Femenino</label>
-            <input type="radio" class="form-control" id="Sexo" name="Sexo">
-        </div>
-
-        <div class="form-group">
-        <label for="Telefono">Telefono</label>
-        <input type="tel" class="form-control" id="Telefono" name="Telefono">
-        </div>
-
-        <div class="form-group">
-            <label for="Direccion">Direccion</label>
-            <input type="text" class="form-control" id="Direccion" name="Direccion">
-        </div>
-        
-        <h3>Tipo de cliente</h3>
-        <div class="form-group">
-            <label for="Tipo de cliente">Regular</label>
-            <input type="radio" class="form-control" id="Tipo de cliente" name="Tipo de cliente">
-        </div>
-
-        <div class="form-group">
-            <label for="Tipo de cliente">Fanatico</label>
-            <input type="radio" class="form-control" id="Tipo de cliente" name="Tipo de cliente">
-        </div>
-
-        <div class="form-group">
-            <label for="idCliente">Contraseña</label>
-            <input type="password" class="form-control" id="idCliente" name="idCliente">
-        </div>
-
-        <br><button id="Enviar" name="Enviar" class="btn btn-primary">Enviar</button></br>
-        <br><a href="RegistroUsuarios.html">Cuenta usuario</a></br>
-        <br><a href="Compra.html">Compra</a></br>
-    </form>
-    </div>
-    </div>-->
-
-    <script src="js/jquery-3.5.1.slim.min.js" ></script>
-    <script src="js/bootstrap.bundle.min.js" ></script>
+    <br><br>
+    <a href="MainRegistros.html">Volver al menú</a>
+    <script src="../js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="../js/bootstrap.bundle.min.js" ></script>
     <script> //scrip para validar campos
         // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
