@@ -118,7 +118,7 @@
                             <?php } ?>
                         </div>
                         <div class="sb-sidenav-footer fixed-bottom">
-                            <div class="small">Empleadado activo actualmente:</div>
+                            <div class="small">Empleado activo actualmente:</div>
                             
                             <?php
                                 $TipoEmpleado="";
