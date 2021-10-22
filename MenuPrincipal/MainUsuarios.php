@@ -96,8 +96,8 @@ $resultado = $mysqli->query($sql);
                                             <th>idUsuario</th>
                                             <th>Nombre</th>
                                             <th>Email</th>
-                                            <th>Contrasena</th>
-                                            <th>Nivel Acceso</th>
+                                            <th>Contraseña</th>
+                                            <th>Nivel de acceso</th>
                                         </tr>
                                     </thead>
                                     <tfoot> <!-- Pie de la tabla-->
@@ -105,8 +105,8 @@ $resultado = $mysqli->query($sql);
                                             <th>idUsuario</th>
                                             <th>Nombre</th>
                                             <th>Email</th>
-                                            <th>Contrasena</th>
-                                            <th>Nivel Acceso</th>
+                                            <th>Contraseña</th>
+                                            <th>Nivel de acceso</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
