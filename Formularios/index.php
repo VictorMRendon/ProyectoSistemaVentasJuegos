@@ -83,9 +83,6 @@ if($_POST)
         </div>
     </div>
 
-    <br><br>
-    <a href="MainRegistros.html">Volver al menú</a>
-
     <script src="../js/jquery-3.5.1.slim.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script> //scrip para validar campos
