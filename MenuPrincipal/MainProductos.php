@@ -94,7 +94,7 @@ $resultado = $mysqli->query($sql);
 
                         <div class="form-group w-75 mx-auto"> <!-- Precio -->
                             <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                            <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200" min="1" max="99" required>
+                            <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200.99" min="1" max="9999" step="0.01" required>
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese una cantidad válida.</div>
                         </div>

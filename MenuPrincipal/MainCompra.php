@@ -117,14 +117,14 @@ $resultado = $mysqli->query($sql);
 
                  <div class="form-group w-50 mx-auto"> <!-- Pago -->
                      <label for="Pago" class="label font-weight-bold">Pago:</label>
-                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750" min="1" max="9999" step="0.01"required>
+                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750.59" min="1" max="9999" step="0.01"required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                  </div>
 
                  <div class="form-group w-50 mx-auto"> <!-- Cambio -->
                      <label for="Cambio" class="label font-weight-bold">Cambio:</label>
-                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="50.70" min="1" max="9999" step="0.01" required>
+                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="500.70" min="1" max="9999" step="0.01" required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                  </div>
