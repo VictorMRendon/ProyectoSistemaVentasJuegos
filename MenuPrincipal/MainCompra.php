@@ -39,8 +39,8 @@ $resultado = $mysqli->query($sql);
                  </div>
 
                  <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
-                     <label for="Nombre de Empleado" class="label font-weight-bold">Nombre de Empleado:</label>
-                     <input type="text" class="form-control" id="Nombre de Empleado" name="Nombre de Empleado" placeholder="Jose Daniel Salinas Tovar">
+                     <label for="NombreEmpleado" class="label font-weight-bold">Nombre de Empleado:</label>
+                     <input type="text" class="form-control" id="NombreEmpleado" name="NombreEmpleado" placeholder="Jose Daniel Salinas Tovar" required>
                      <!-- Los warning -->
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese su Nombre</div>
@@ -74,22 +74,22 @@ $resultado = $mysqli->query($sql);
                  </div>
 
                  <div class="form-group w-100 mx-auto"> <!-- Codigo-->
-                     <label for="Nombre" class="label font-weight-bold">Código de barras</label>
+                     <label for="Nombre" class="label font-weight-bold">Código de barras:</label>
                      <input type="text" class="form-control" id="CodigoBarras" name="Codigo" placeholder="0001" autofocus required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese un código válido.</div>
                  </div>
 
                  <div class="form-group w-100 mx-auto"> <!-- Nombre del producto vendido-->
-                     <label for="Nombre" class="label font-weight-bold"> Título </label>
+                     <label for="Nombre" class="label font-weight-bold"> Título: </label>
                      <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Star Wars" required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese un título válido.</div>
                  </div>
 
-                 <div class="form-group w-25 mx-auto"> <!-- Precio -->
+                 <div class="form-group w-50 mx-auto"> <!-- Precio -->
                      <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                     <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200" min="1" max="99" required>
+                     <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200.99" min="1" max="99" step="0.01" required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
                  </div>
@@ -103,28 +103,28 @@ $resultado = $mysqli->query($sql);
 
                  <div class="form-group w-100 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
                      <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
-                     <input type="number" class="form-control w-50 mx-auto" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" required>
+                     <input type="number" class="form-control" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" step="0.01" required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Importe.</div>
                  </div>
 
                  <div class="form-group w-25 mx-auto"> <!-- Iva -->
                      <label for="IVA" class="label font-weight-bold">IVA:</label>
-                     <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" min="1" max="99" required>
+                     <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" step="0.01"  required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de IVA.</div>
                  </div>
 
-                 <div class="form-group w-25 mx-auto"> <!-- Pago -->
+                 <div class="form-group w-50 mx-auto"> <!-- Pago -->
                      <label for="Pago" class="label font-weight-bold">Pago:</label>
-                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750" min="1" max="9999" required>
+                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750" min="1" max="9999" step="0.01"required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                  </div>
 
-                 <div class="form-group w-25 mx-auto"> <!-- Cambio -->
+                 <div class="form-group w-50 mx-auto"> <!-- Cambio -->
                      <label for="Cambio" class="label font-weight-bold">Cambio:</label>
-                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="50" min="1" max="9999" required>
+                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="50.70" min="1" max="9999" step="0.01" required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                  </div>
