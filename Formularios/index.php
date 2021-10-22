@@ -21,6 +21,7 @@ if($_POST)
         $paswordCifrado = sha1($pasword); // contra del formulario
         if($pasword_bd == $paswordCifrado)
         {
+            //Variables para la sesion activa
             $_SESSION['idUsuario'] = $row['idUsuario'];
             $_SESSION['nombre'] = $row['Nombre'];
             $_SESSION['NivelAcceso'] = $row['NivelAcceso'];
