@@ -15,7 +15,7 @@ $resultado = $mysqli->query($sql);
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
 
 <div class="container text-center">
-        <h1 class="text-center mt-5 display-3 font-weight-bold">Registro de nuevo cliente</h1>
+        <h1 class="text-center mt-3 display-3 font-weight-bold">Registro de nuevo cliente</h1>
        <div class="rows">
            <div class="col">
 

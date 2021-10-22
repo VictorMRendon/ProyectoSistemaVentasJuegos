@@ -12,6 +12,7 @@
         <title>Menú principal</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
+        <link href="boostrap-icons-1.6.1" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
 
@@ -55,11 +56,11 @@
                                 
                                 
                                 <!-- -->
-                                <div class="sb-sidenav-menu-heading">Secciones</div>
-                                    
                                 <?php //Para mostrar secciones segun el nivel de acceso
                                         if($NivelAccesoActivo==1 || $NivelAccesoActivo==2){
                                 ?>
+                                <div class="sb-sidenav-menu-heading">Secciones</div>                                    
+                                
                                 <div> <!-- Seccion de paginas-->
                                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                         <!--Icono-->
@@ -75,38 +76,49 @@
                                                 <a class="nav-link" href="../MenuPrincipal/MainEmpleados.php">Empleados</a>
                                                 <a class="nav-link" href="../MenuPrincipal/MainClientes.php">Clientes</a>
                                                 <!--Apaprtados inicio-->
-                                                                                        
-                                            <!-- Seccion de errores
-                                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                                Error
-                                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                                            </a>
-                                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
-                                                <nav class="sb-sidenav-menu-nested nav">
-                                                    <a class="nav-link" href="401.html">401 Page</a>                                
-                                                </nav>
-                                            </div>-->
                                         </nav>
                                     </div>
                                 </div>
                                 <!-- Para cerrar la validacion-->
                                 <?php } ?>
-
+                                
                                 <!-- Seccion 2-->
-                                <div class="sb-sidenav-menu-heading">Addons</div>
-                                <a class="nav-link" href="charts.html">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                    Charts
+                                <div class="sb-sidenav-menu-heading">Mercancía</div>
+                                <a class="nav-link" href="../MenuPrincipal/MainProductos.php">
+                                    <div class="sb-nav-link-icon"><i class="bi bi-bag-fill"></i></i></div>
+                                    Productos
                                 </a>
-                                <a class="nav-link" href="tabla.php">
+                                <a class="nav-link" href="MainCompra.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                    Tables
+                                    Cobro
                                 </a>
+
+                                <?php //Para mostrar secciones segun el nivel de acceso
+                                        if($NivelAccesoActivo==1 || $NivelAccesoActivo==2){
+                                ?>
+                                <!-- Seccion 3-->
+                                <div class="sb-sidenav-menu-heading">Estadísticas</div>
+                                    <a class="nav-link" href="../MenuPrincipal/MainGraficas.php">
+                                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                        Gráficas
+                                    </a>
                             </div>
+                            <!-- Para cerrar la validacion-->
+                            <?php } ?>
                         </div>
-                        <div class="sb-sidenav-footer">
-                            <div class="small">Logged in as:</div>
-                            Start Bootstrap
+                        <div class="sb-sidenav-footer fixed-bottom">
+                            <div class="small">Empledado activo actualmente:</div>
+                            
+                            <?php
+                                $TipoEmpleado="";
+                                switch($NivelAccesoActivo){
+                                    case 1: $TipoEmpleado="Administrador"; break;
+                                    case 2: $TipoEmpleado="Sub Administrador"; break;
+                                    case 3: $TipoEmpleado="Gerente"; break;
+                                    case 4: $TipoEmpleado="Cajero"; break;
+                                }
+                                echo $TipoEmpleado;
+                            ?>
                         </div>
                     </nav>
             </div>
