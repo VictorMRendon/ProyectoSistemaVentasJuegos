@@ -14,7 +14,43 @@
     <h1>Venta</h1>
     <link rel="stylesheet" href="../Fondos/basico.css">
     
-<!-- Aqui pegas el div para el cuadro-->
+        <div class="rows"> <!-- Para hacer el cuadro de fondo -->
+           <div class="col">
+
+            <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
+                <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+
+                    <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                        <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
+                        <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
+                        <!-- Los warning -->
+                        <div class="valid-feedback">Verificado</div>
+                        <div class="invalid-feedback">Ingrese su ID de Empleado</div>
+                    </div>
+
+                    <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                        <label for="Nombre de Empleado" class="label font-weight-bold">Nombre de Empleado:</label>
+                        <input type="text" class="form-control" id="Nombre de Empleado" name="Nombre de Empleado" placeholder="Jose Daniel Salinas Tovar">
+                        <!-- Los warning -->
+                        <div class="valid-feedback">Verificado</div>
+                        <div class="invalid-feedback">Ingrese su Nombre</div>
+                    </div>
+                    
+                    <div class="form-group w-50 mx-auto"><!-- Pasword -->
+                        <label for="contrasena" class="font-weight-bold">Contraseña:</label>
+                        <input type="password" class="form-control" id="idCliente" name="idCliente" placeholder="Ej3mpl01234" required>
+                        <div class="valid-feedback">Verificado</div>
+                        <div class="invalid-feedback">Ingrese su contraseña</div>
+                    </div>
+
+                    <div class="form-group text-center"> <!-- Btn -->
+                        <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                    </div>
+                    
+                </form>
+            </div>
+         </div>
+    </div>
 
     <div class="col-12 col-xl-6">
     <form method="post" action="guarda_contacto.php" autocomplete="off">
