@@ -15,6 +15,7 @@ $resultado = $mysqli->query($sql);
 ?>
 
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
+
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
     <div class="container text-center">
         <h1 class="text-center mt-3 display-4 font-weight-bold">
@@ -134,6 +135,7 @@ $resultado = $mysqli->query($sql);
     </div>
     <script src="../js/jquery-3.5.1.slim.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
+    
     <script> //scrip para validar campos
         // Example starter JavaScript for disabling form submissions if there are invalid fields
             (function () {

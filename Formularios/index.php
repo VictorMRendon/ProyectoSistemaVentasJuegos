@@ -29,7 +29,11 @@ if($_POST)
             header("Location: ../MenuPrincipal/principal.php");
 
         }
-        else { echo "La contrasena no coincide.";}
+        else 
+        { 
+            echo "La contrasena no coincide.";
+            
+        }
     }
     else { echo "No existe el usuario"; }
 }
