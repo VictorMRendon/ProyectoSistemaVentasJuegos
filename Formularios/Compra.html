@@ -41,7 +41,7 @@
 
                     <div class="form-group w-75 mx-auto"><!-- Verificacion de miembro CON ELLO AL ACTIVARLO SE DEBE APARECER UN TXTBOX PARA PONER EL ID CLIENTE -->
                         <label for="validacion de miembro" class="label font-weight-bold">¿Es miembro el cliente?</label>
-                        <input type="radio" class="form-control" id="validacion de miembro" name="validacion de miembro" value="Si">
+                        <input type="checkbox" class="form-control" id="validacion de miembro" name="validacion de miembro" value="Si">
                         <label class="form-check-label" for="flexRadioDefault1"> Si es miembro </label>
                         <!-- Los warning -->
                         <div class="valid-feedback">Verificado</div>
@@ -114,12 +114,6 @@
                         <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                     </div>
                     
-                    <div class="form-group w-50 mx-auto"><!-- Pasword -->
-                        <label for="contrasena" class="font-weight-bold">Contraseña:</label>
-                        <input type="password" class="form-control" id="idCliente" name="idCliente" placeholder="Ej3mpl01234" required>
-                        <div class="valid-feedback">Verificado</div>
-                        <div class="invalid-feedback">Ingrese su contraseña</div>
-                    </div>
 
                     <div class="form-group text-center"> <!-- Btn -->
                         <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
@@ -208,6 +202,28 @@
     <a href="MainRegistros.html">Volver al menú</a>
     <script src="../js/jquery-3.5.1.slim.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
+    <script> //scrip para validar campos
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
 
 </body>
 </html>
