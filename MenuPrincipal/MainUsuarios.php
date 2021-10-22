@@ -1,21 +1,27 @@
+<?php require_once "../PartesMenu/ParteSuperior.php" ?>
+    <!--Contenido Inicio-->
+            <div id="layoutSidenav_content">
+                <main>
+                        <div class="container-fluid px-4">
+
+<!-- Inicio del formulario-->
+<?php
+//require "../scrips/SesionActiva.php"; 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de usuarios</title>
+if($NivelAccesoActivo==1 || $NivelAccesoActivo==2) { $where="";}
+else if($NivelAccesoActivo==4)
+{ $where="where idUsuario = $idUsuario"; }
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css" > 
 
-</head>
-<body>
-<!--   -->
-<link rel="stylesheet" href="../Fondos/basico.css">
+$sql= "select * from usuarios $where";
+$resultado = $mysqli->query($sql);
+?>
+
+<link rel="stylesheet" href="../css/bootstrap.min.css" >
+<!--<link rel="stylesheet" href="../Fondos/basico.css">-->
     <div class="container text-center">
-        <h1 class="text-center mt-5 display-3 font-weight-bold">Registro de nuevo usuario</h1>
+        <h1 class="text-center mt-5 display-3 font-weight-bold">Alta de nuevo usuario</h1>
        <div class="rows">
            <div class="col">
 
@@ -68,9 +74,63 @@
              </div>
         </div>
     </div>
+    <!--Tabla-->
+    <div id="layoutSidenav_content" class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-100 mx-auto">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4 mb-4">Registros</h1>
+                        <!--Cuadro de texto para comentarios
+                        <div class="card mb-4"> 
+                            <div class="card-body">
+                                DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the
+                                <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>
+                                .
+                            </div>
+                        </div>-->
 
-    <br><br>
-    <a href="MainRegistros.html">Volver al menú</a>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Usuarios Registrados
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead><!-- Inicio de la tabla-->
+                                        <tr>
+                                            <th>idUsuario</th>
+                                            <th>Nombre</th>
+                                            <th>Email</th>
+                                            <th>Contrasena</th>
+                                            <th>Nivel Acceso</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot> <!-- Pie de la tabla-->
+                                        <tr>
+                                            <th>idUsuario</th>
+                                            <th>Nombre</th>
+                                            <th>Email</th>
+                                            <th>Contrasena</th>
+                                            <th>Nivel Acceso</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php while($row= $resultado->fetch_assoc()) { ?>
+                                            <tr>
+                                                <td><?php echo $row['idUsuario']?></td>
+                                                <td><?php echo $row['Nombre']?></td>
+                                                <td><?php echo $row['Email']?></td>
+                                                <td><?php echo $row['Contrasena']?></td>
+                                                <td><?php echo $row['NivelAcceso']?></td>
+                                            </tr>
+                                       <?php }?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                
+            </div>
     <script src="../js/jquery-3.5.1.slim.min.js" ></script>
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script> //scrip para validar campos
@@ -95,5 +155,12 @@
                 })
             })()
     </script>
-</body>
-</html>
+
+<!-- Inicio del formulario-->
+
+                        </div>
+                </main>
+    
+            </div>
+    <!--Contenido Fin-->
+<?php require_once "../PartesMenu/ParteInferior.php" ?>

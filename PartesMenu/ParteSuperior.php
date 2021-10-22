@@ -1,14 +1,5 @@
-        <!--Parte superior inicio-->
-<?php
-    session_start();
-
-    //Validar que exista una sesion actva
-    if(!isset($_SESSION['idUsuario']))
-    { header("Location: ../Formularios/index.php");}
-
-    $nombreSesionActiva = $_SESSION['nombre'];
-    $NivelAccesoActivo = $_SESSION['NivelAcceso'];
-?>
+<!--Parte superior inicio-->
+<?php require "../scrips/SesionActiva.php"; ?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -96,7 +87,7 @@
                                         <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                                                 Usuarios
-                                                <a class="nav-link" href="../Formularios/RegistroUsuarios.html">Usuarios</a>
+                                                <a class="nav-link" href="../MenuPrincipal/MainUsuarios.php">Usuarios</a>
                                             </a>
                                             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                                 <nav class="sb-sidenav-menu-nested nav">
