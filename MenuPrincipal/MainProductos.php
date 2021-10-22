@@ -70,11 +70,11 @@ $resultado = $mysqli->query($sql);
                         <div class="form-group w-75 mx-auto"> <!-- Presentacion -->
                             <label for="Sexo" class="label font-weight-bold">Presentación:</label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="FISICO" id="PresFisica" value="FISICO" checked>
+                                <input class="form-check-input" type="radio" name="Pres" id="PresFisica" value="FISICO" checked>
                                 <label class="form-check-label" for="flexRadioDefault1"> FISICO </label>
                             </div>
                             <div class="form-check ">
-                                <input class="form-check-input" type="radio" name="DIGITAL" id="PresDigital" value="DIGITAL">
+                                <input class="form-check-input" type="radio" name="Pres" id="PresDigital" value="DIGITAL">
                                 <label class="form-check-label" for="flexRadioDefault1"> DIGITAL </label>
                             </div>
                         </div>                    
