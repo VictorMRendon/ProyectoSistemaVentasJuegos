@@ -10,11 +10,11 @@
 
 </head>
 <body>
-    <div class="container">
+    <div class="container text-center">
     <h1>Venta</h1>
     <link rel="stylesheet" href="../Fondos/basico.css">
     
-<!-- Aqui pegas el div para el cuadro-->
+<!-- Aqui pegas el div para el cuadro
 
     <div class="col-12 col-xl-6">
     <form method="post" action="guarda_contacto.php" autocomplete="off">
@@ -89,8 +89,123 @@
         <br><a href="RegistroCliente.html">Cuenta cliente</a></br>
     </form>
     </div>
-    </div>
+    </div>-->
     
+    <div class="rows"> <!-- Para hacer el cuadro de fondo -->
+        <div class="col">
+
+         <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
+             <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+
+                 <div class="form-group w-75 mx-auto"><!--Id de empleado -->
+                     <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
+                     <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
+                     <!-- Los warning -->
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese su ID de Empleado</div>
+                 </div>
+
+                 <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                     <label for="Nombre de Empleado" class="label font-weight-bold">Nombre de Empleado:</label>
+                     <input type="text" class="form-control" id="Nombre de Empleado" name="Nombre de Empleado" placeholder="Jose Daniel Salinas Tovar">
+                     <!-- Los warning -->
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese su Nombre</div>
+                 </div>
+
+                 <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
+                 <input type="hidden" id="idFactura" name="idFactura" value="1">
+
+                 <div class="form-group w-75 mx-auto"><!-- Verificacion de miembro CON ELLO AL ACTIVARLO SE DEBE APARECER UN TXTBOX PARA PONER EL ID CLIENTE -->
+                     <label for="validacion de miembro" class="label font-weight-bold">¿Es miembro el cliente?</label>
+                     
+                     <div class="form-group w-75 mx-auto">
+                        <input class="form-check-input" type="checkbox" value="Si" id="ValidarMiembro" name="ValidarMiembro">
+                        <label class="form-check-label" for="defaultCheck1">
+                            Sí es miembro.
+                        </label>
+                         <!-- Los warning -->
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">De click si es miembro</div>
+                </div>
+
+
+                 <!-- No se muestra el imput, solo es para recibir y mandar el id del cliente-->
+                 <input type="hidden" id="idCliente" name="idCliente" value="2">
+
+                 <div class="form-group w-100 mx-auto"> <!-- Fecha Compra -->
+                     <label for="Fecha de Compra" class="label font-weight-bold">Fecha de Compra:</label>
+                     <input type="date" class="form-control" id="Fecha de Compra" name="Fecha de Compra">
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una fecha válida.</div>
+                 </div>
+
+                 <div class="form-group w-100 mx-auto"> <!-- Codigo-->
+                     <label for="Nombre" class="label font-weight-bold">Código de barras</label>
+                     <input type="text" class="form-control" id="CodigoBarras" name="Codigo" placeholder="0001" autofocus required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese un código válido.</div>
+                 </div>
+
+                 <div class="form-group w-100 mx-auto"> <!-- Nombre del producto vendido-->
+                     <label for="Nombre" class="label font-weight-bold"> Título </label>
+                     <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Star Wars" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese un título válido.</div>
+                 </div>
+
+                 <div class="form-group w-25 mx-auto"> <!-- Precio -->
+                     <label for="Nombre" class="label font-weight-bold">Precio:</label>
+                     <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200" min="1" max="99" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
+                 </div>
+
+                 <div class="form-group w-25 mx-auto"> <!-- Cantidad -->
+                     <label for="Cantidad" class="label font-weight-bold">Cantidad:</label>
+                     <input type="number" class="form-control" id="Cantidad" name="Cantidad" placeholder="10" min="1" max="99" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de cantidad.</div>
+                 </div>
+
+                 <div class="form-group w-100 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
+                     <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
+                     <input type="number" class="form-control w-25 mx-auto" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de Importe.</div>
+                 </div>
+
+                 <div class="form-group w-25 mx-auto"> <!-- Iva -->
+                     <label for="IVA" class="label font-weight-bold">IVA:</label>
+                     <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" min="1" max="99" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de IVA.</div>
+                 </div>
+
+                 <div class="form-group w-25 mx-auto"> <!-- Pago -->
+                     <label for="Pago" class="label font-weight-bold">Pago:</label>
+                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750" min="1" max="9999" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
+                 </div>
+
+                 <div class="form-group w-25 mx-auto"> <!-- Cambio -->
+                     <label for="Cambio" class="label font-weight-bold">Cambio:</label>
+                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="50" min="1" max="9999" required>
+                     <div class="valid-feedback">Verificado</div>
+                     <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
+                 </div>
+                 
+
+                 <div class="form-group text-center"> <!-- Btn -->
+                     <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                 </div>
+                 
+             </form>
+         </div>
+      </div>
+ </div>
+
     <!--<br><br>
     <a href="MainRegistros.html">Volver al menú</a>-->
 
