@@ -20,7 +20,7 @@
             <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
                 <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
 
-                    <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                    <div class="form-group w-75 mx-auto"><!--Id de empleado -->
                         <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
                         <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
                         <!-- Los warning -->
@@ -35,6 +35,19 @@
                         <div class="valid-feedback">Verificado</div>
                         <div class="invalid-feedback">Ingrese su Nombre</div>
                     </div>
+
+                    <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
+                    <input type="hidden" id="idFactura" name="idFactura" value="1">
+
+                    <h2>¿Es miembro?</h2>
+                    <div class="form-group w-75 mx-auto"><!-- Verificacion de miembro -->
+                        <label for="validacion de miembro" class="label font-weight-bold">¿Es miembro el cliente?</label>
+                        <input type="radio" class="form-control" id="validacion de miembro" name="validacion de miembro">
+                        <!-- Los warning -->
+                        <div class="valid-feedback">Verificado</div>
+                        <div class="invalid-feedback">De click si es miembro</div>
+                    </div>
+
                     
                     <div class="form-group w-50 mx-auto"><!-- Pasword -->
                         <label for="contrasena" class="font-weight-bold">Contraseña:</label>
@@ -54,21 +67,6 @@
 
     <div class="col-12 col-xl-6">
     <form method="post" action="guarda_contacto.php" autocomplete="off">
-
-        <div class="form-group">
-          <label for="idFactura">idFactura</label>
-          <input type="password" class="form-control" id="idFactura" name="idFactura">
-        </div>
-
-        <div class="form-group">
-            <label for="idEmpleado">idEmpleado</label>
-            <input type="password" class="form-control" id="idEmpleado" name="idEmpleado">
-          </div>
-
-        <div class="form-group">
-            <label for="Empleado">Nombre de Empleado</label>
-            <input type="text" class="form-control" id="Empleado" name="Empleado">
-        </div>
 
         <div class="form-group">
             <label for="idCliente">idCliente</label>
