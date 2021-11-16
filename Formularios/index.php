@@ -27,13 +27,9 @@ if($_POST)
             $_SESSION['NivelAcceso'] = $row['NivelAcceso'];
 
             header("Location: ../MenuPrincipal/principal.php");
-
         }
         else 
-        { 
-            echo "La contrasena no coincide.";
-            
-        }
+        {  echo "La contrasena no coincide.";  }
     }
     else { echo "No existe el usuario"; }
 }

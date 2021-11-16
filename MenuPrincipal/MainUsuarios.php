@@ -1,4 +1,4 @@
-<?php require_once "../PartesMenu/ParteSuperior.php" ?>
+<?php require_once ("../PartesMenu/ParteSuperior.php"); ?>
     <!--Contenido Inicio-->
             <div id="layoutSidenav_content">
                 <main>
@@ -6,12 +6,17 @@
 
 <!-- Inicio del formulario-->
 <?php
+//Scrip para imprimir los registros en la tabla
 //require "../scrips/SesionActiva.php"; 
-if($NivelAccesoActivo==1 || $NivelAccesoActivo==2) { $where="";}
-else if($NivelAccesoActivo==4)
-{ $where="where idUsuario = $idUsuario"; }
-$sql= "select * from usuarios $where";
-$resultado = $mysqli->query($sql);
+    /* require_once("../scrips/operaciones.php");
+    $opMostrar= new Operacion(); */
+
+    if($NivelAccesoActivo==1 || $NivelAccesoActivo==2) { $where="";}
+    else if($NivelAccesoActivo==4)
+    { $where="where idUsuario = $idUsuario"; }
+    //$resultado = $opMostrar->MostrarDatos("usuarios", $where);
+    $sql= "select * from usuarios $where";
+    $resultado = $mysqli->query($sql); 
 ?>
 
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
@@ -28,10 +33,10 @@ $resultado = $mysqli->query($sql);
            <div class="col">
 
                 <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
-                    <form class=" needs-validation "  novalidate method="post" action=""> <!-- Formulario -->
+                    <form class=" needs-validation "  novalidate method="POST" action="../scrips/AddUsuario.php"> <!-- Formulario -->
 
                         <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="1">
+                        <input type="hidden" id="idUsuario" name="idUsuario" value="1" action="#">
                         
                         <div class="form-group w-75 mx-auto"> <!-- Nombre-->
                             <label for="Nombre" class="label font-weight-bold">Nombre de usuario:</label>
@@ -49,7 +54,7 @@ $resultado = $mysqli->query($sql);
                         
                         <div class="form-group w-50 mx-auto"> <!-- Pasword -->
                             <label for="contrasena" class="font-weight-bold">Contraseña:</label>
-                            <input type="password" class="form-control" id="idCliente" name="idCliente" placeholder="Ej3mpl01234" required>
+                            <input type="password" class="form-control" id="Pasword" name="Pasword" placeholder="Ej3mpl01234" required>
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese su contraseña</div>
                         </div>
