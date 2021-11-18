@@ -73,7 +73,7 @@
                         </div>
 
                         <div class="form-group text-center"> <!-- Btn -->
-                            <button class="mt-3 btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                            <button class="mt-3 btn btn-outline-primary btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
                         </div>
                         
                     </form>
@@ -109,8 +109,26 @@
                                             <th>Email</th>
                                             <th>Contraseña</th>
                                             <th>Nivel de acceso</th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
+
+                                    <tbody>
+                                        <?php while($row= $resultado->fetch_assoc()) { ?>
+                                            <tr>
+                                                <td><?php echo $row['idUsuario']?></td>
+                                                <td><?php echo $row['Nombre']?></td>
+                                                <td><?php echo $row['Email']?></td>
+                                                <td><?php echo $row['Contrasena']?></td>
+                                                <td><?php echo $row['NivelAcceso']?></td>
+                                                <td >
+                                                <a href="../scrips/EditUsuario.php" class="btn btn-outline-success btn-sm">Editar</a>
+                                                <a href="../scrips/DeleteUsuario.php" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                                </td>
+                                            </tr>
+                                       <?php }?>
+                                    </tbody>
+
                                     <tfoot> <!-- Pie de la tabla-->
                                         <tr>
                                             <th>idUsuario</th>
@@ -120,17 +138,7 @@
                                             <th>Nivel de acceso</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                        <?php while($row= $resultado->fetch_assoc()) { ?>
-                                            <tr>
-                                                <td><?php echo $row['idUsuario']?></td>
-                                                <td><?php echo $row['Nombre']?></td>
-                                                <td><?php echo $row['Email']?></td>
-                                                <td><?php echo $row['Contrasena']?></td>
-                                                <td><?php echo $row['NivelAcceso']?></td>
-                                            </tr>
-                                       <?php }?>
-                                    </tbody>
+                                    
                                 </table>
                             </div>
                         </div>

@@ -9,10 +9,14 @@
 
     $sql = "insert into usuarios (Nombre, Email, Contrasena, NivelAcceso) values ('$Nombre','$Correo','$PassConv','$NivAcc')";
     $resultado = $mysqli->query($sql);
+
+    if($resultado)
+    { header("Location: ../MenuPrincipal/MainUsuarios.php"); }
+    else { echo "Error al registrar."; }
     
 ?>
 
-<!DOCTYPE html>
+<!--DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -25,14 +29,14 @@
 <body>
     <div class="container">
         <div class="row">
-            <?php if($resultado) { ?>
+            ?php if($resultado) { ?>
             <h3>Registro guardado</h3>
-            <?php } else { ?>
+            ?php } else { ?>
             <h3> Error al guardar</h3>
-            <?php } ?>
+            ?php } ?>
         </div>
     </div> 
     <a href="../MenuPrincipal/MainUsuarios.php" class="btn btn-primary">Regresar</a>   
     
 </body>
-</html>
+</html-->
