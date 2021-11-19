@@ -18,6 +18,7 @@ require_once('../php/connection.php');
 //NOSE SI DEJARLO ASI O SI MEF ALTA DESCARGAR EL CHAR ABAJO DE BARCHART
 //intentandooooooooooooooooo
 //qaaaaaaaaaaaaaaaaaa
+//ACRUALIZA
     var barChartData = {
         labels : [
             <?php 
