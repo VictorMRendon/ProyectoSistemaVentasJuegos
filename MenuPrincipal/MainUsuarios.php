@@ -120,7 +120,7 @@
     </div>
 -->
     <div id="userModal" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitulo" >
-        <div class="modal-dialog w-75">
+        <div class="modal-dialog w-75 modal-center">
             <div class="modal-content">   
                 <div class="modal-header alert-info" >
                     <h2 class="mx-auto display-7 font-weight-bold modal-title" id="modalTitulo">
@@ -179,7 +179,7 @@
                         </div>
 
                         <div class="text-center">
-                        <button class=" btn btn-outline-primary  font-weight-bold mt-3" type="submit" id="Enviar" name="Enviar" >Enviar</button>
+                        <button class=" btn btn-outline-primary  font-weight-bold mt-1" type="submit" id="Enviar" name="Enviar" >Enviar</button>
 
                         </div>
 
