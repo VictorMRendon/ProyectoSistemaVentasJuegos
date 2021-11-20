@@ -116,14 +116,14 @@
                                     <tbody>
                                         <?php while($row= $resultado->fetch_assoc()) { ?>
                                             <tr>
-                                                <td><?php echo $row['idUsuario']?></td>
+                                                <td><?php echo $row['idUsuario'] ?></td>
                                                 <td><?php echo $row['Nombre']?></td>
                                                 <td><?php echo $row['Email']?></td>
                                                 <td><?php echo $row['Contrasena']?></td>
                                                 <td><?php echo $row['NivelAcceso']?></td>
                                                 <td >
                                                 <a href="../scrips/EditUsuario.php" class="btn btn-outline-success btn-sm">Editar</a>
-                                                <a href="../scrips/DeleteUsuario.php" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                                <a href="../scrips/DeleteUsuario.php? id=<?php echo $row['idUsuario'] ?>" class="btn btn-outline-danger btn-sm">Eliminar</a>
                                                 </td>
                                             </tr>
                                        <?php }?>
