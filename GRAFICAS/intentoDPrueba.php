@@ -1,12 +1,13 @@
 <?php
-require_once('../php/connection.php');
+require_once('../scrips/conexion.php');
 ?>
 
 <!doctype html>
 <html>
     <head>
         <title>Bar Chart</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script> 
+        <script src="../jquery/jquery-3.3.1.min.js"></script> 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script> 
 </head>
 <body>
     <div style = "width: 50%">
@@ -22,14 +23,16 @@ require_once('../php/connection.php');
     var barChartData = {
         labels : [
             <?php 
-            $sql = "SELECT * FROM productos";
-            $result = $mysqli_query($connection,$sql);
-            while ($registros = $mysqli_fetch_array($result)){
+            $sql = "SELECT * FROM productos";//tenia $en mysqli
+            $result =  mysqli_query($connection,$sql);
+            while ($registros = mysqli_fetch_array($result))
+            {//tenia $en mysqli
             ?>
-                '<?php echo $registros["titulo_noticia"] ?>',
+                '<?php echo $registros["Titulo"] ?>',
 
             <?php
             }
+            ?>
         ],
         datasets: [
             {
@@ -40,19 +43,22 @@ require_once('../php/connection.php');
                data :
                <?php
                $sql = "SELECT * FROM productos";
-               $result = $mysqli_query($connection,$sql);
+               $result = mysqli_query($connection,$sql);
                ?>
-                [<?php while ($registros = $mysqli_fetch_array($result))(?><?php echo $registros["cantidad"]?>, <?php )?>]
+                [<?php while ($registros = mysqli_fetch_array($result)){?><?php echo $registros["cantidad"]?>,  
+                    <?php }?>]
 
             }
         ]
     }
-    <window.onload = function(){
+
+    window.onload = function(){
         var ctx = document.getElementById("canvas").getContext("2d");
-        window.myBar = new Char(ctx).Bar(barChartData, {
+        window.myBar = new Chart(ctx).Bar(barChartData, {
             responsive : true
         });
     }
 
     </script>
     </body>
+</html>
