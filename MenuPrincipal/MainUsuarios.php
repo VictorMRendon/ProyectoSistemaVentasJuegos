@@ -19,6 +19,19 @@
     $resultado = $mysqli->query($sql); 
 ?>
 
+<!-- <script type="text/javascript">
+
+        $(function(){
+
+            $('#userModal').modal({
+                backdrop:'static'
+                //keyboard:false,
+                //focus:false
+            });
+        });
+
+</script> -->
+
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 
 <!--<link rel="stylesheet" href="../Fondos/basico.css">--
