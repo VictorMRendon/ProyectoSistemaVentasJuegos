@@ -1,6 +1,7 @@
 <?php 
 
 $mysqli = new mysqli("localhost","root", "", "bdtiendajuegos");
+
 /* $NombreBD="bdtiendajuegos";
 $Usuario="root";
 $Pasword= "";
