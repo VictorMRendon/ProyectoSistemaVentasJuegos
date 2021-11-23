@@ -119,82 +119,15 @@
         </div>
     </div>
 -->
-    <div id="userModal" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitulo" >
-        <div class="modal-dialog w-75 modal-center">
-            <div class="modal-content">   
-                <div class="modal-header alert-info" >
-                    <h2 class="mx-auto display-7 font-weight-bold modal-title" id="modalTitulo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
-                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                        </svg>
-                          Alta de nuevo usuario
-                    </h2>
-                    <div> <!-- Btn cerrar pestana -->    
-                    <button type="button" class="btn-close ml-auto btn-outline-danger" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <?php include('../Modales/NewUsuarioModal.php')?>
+        <?php include('../Modales/EditUsuarioModal.php')?>
+        <?php include('../Modales/DeleteUsuarioModal.php')?>
+    
+        
 
-                    </div>
+            
 
-                </div>
-
-                <div class="modal-boddy">
-                    <p>
-                    <form class=" needs-validation"  novalidate method="POST" action="../scrips/AddUsuario.php"> <!-- Formulario -->
-
-                        <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
-                        <input type="hidden" id="idUsuario" name="idUsuario" value="1" action="#">
-
-                        <div class="form-group w-50 mx-auto"> <!-- Nombre-->
-                            <label for="Nombre" class="label font-weight-bold">Nombre de usuario:</label>
-                            <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre(s) Apellidos" autofocus required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese su nombre de usuario.</div>
-                        </div>
-
-                        <div class="form-group w-50 mx-auto"> <!-- Email -->
-                            <label for="Email" class="label font-weight-bold">Correo Electronico:</label>
-                            <input type="email" class="form-control" id="Email" name="Email" placeholder="usuario@tiendavideo.com" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese su correo.</div>
-                        </div>
-
-                        <div class="form-group w-25 mx-auto"> <!-- Pasword -->
-                            <label for="contrasena" class="font-weight-bold">Contraseña:</label>
-                            <input type="password" class="form-control" id="Pasword" name="Pasword" placeholder="Ej3mpl01234" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese su contraseña</div>
-                        </div>
-
-                        <div class="w-50 mx-auto"> <!-- Caja de opciones -->
-                            <label for="Nivel de Acceso" class="font-weight-bold">Nivel de Acceso:</label>
-                            <select name="NivelAcc" id="NivelAccesso" class="custom-select form-select-lg mb-2" required>
-                                <option selected disabled>Escoja una opción...</option>
-                                <option value="1">Administrador</option>
-                                <option value="2">Sub Administrador</option>
-                                <option value="3">Gerente</option>
-                                <option value="4">Cajero</option>
-                            </select>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Escoja una opción.</div>
-                        </div>
-
-                        <div class="text-center">
-                        <button class=" btn btn-outline-primary  font-weight-bold mt-1" type="submit" id="Enviar" name="Enviar" >Enviar</button>
-
-                        </div>
-
-                        </form>
-                    </p>
-
-                </div>
-
-                <div class="modal-footer">                   
-                    <button type="button" class="btn btn-outline-danger btn-sm " data-bs-dismiss="modal" >Cancelar</button>
-                </div>
-
-            </div>
-
-        </div>
+    </div>
 
     </div>
     <!--Tabla-->
@@ -234,7 +167,8 @@
                                             <th>Email</th>
                                             <th>Contraseña</th>
                                             <th>Nivel de acceso</th>
-                                            <th>Opciones</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
 
@@ -246,10 +180,23 @@
                                                 <td><?php echo $row['Email']?></td>
                                                 <td><?php echo $row['Contrasena']?></td>
                                                 <td><?php echo $row['NivelAcceso']?></td>
-                                                <td >
-                                                <a href="../scrips/EditUsuario.php" class="btn btn-outline-success btn-sm">Editar</a>
-                                                <a href="../scrips/DeleteUsuario.php? id=<?php echo $row['idUsuario'] ?>" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                                
+                                                <!-- <a href="../scrips/EditUsuario.php" class="btn btn-outline-success btn-sm">Editar</a> -->
+                                                <td>
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#editUsuario" 
+                                                         class="editbtn mb-2 btn btn-outline-success btn-sm font-weight-bold "> 
+                                                 Editar</button>
                                                 </td>
+                                                
+                                                <td>
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#eliminarUsuario" 
+                                                         class="deletebtn mb-2 btn btn-outline-danger btn-sm font-weight-bold  "> 
+                                                 Eliminar</button>
+
+                                                </td>
+                                                 
+
+                                            
                                             </tr>
                                        <?php }?>
                                     </tbody>
@@ -297,6 +244,63 @@
             })()
     </script>
 
+        
+    <script>//Cidigo para rellenar modal EditarUsuario
+    /*
+        $('.editbtn').on('click',function(){
+
+            $tr=$(this).closest('tr');
+            var datos = $tr.children("td").map(function(){
+                return $(this).text();
+            });
+            $('#idUsuarioM').val(datos[0]);
+            $('#NombreM').val(datos[1]);
+            $('#EmailM').val(datos[2]);
+            $('#PaswordM').val(datos[3]);
+            $('#NivelAccessoM').val(datos[4]);
+        }); 
+    */
+    </script>
+
+    <script>
+        //Script para obtener los valores que esten en el reglon seleccionado de la tabla y mandarlos a los input (Usando sus id)
+        //y mostrar el modal de eliminar.
+        $(document).ready( function(){
+            $('.editbtn').on('click',function(){
+
+                $('#editUsuario').modal('show');
+                
+                $tr=$(this).closest('tr');
+                var datos = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+                //console.log(datos);
+
+                $('#idUsuarioM').val(datos[0]);
+                $('#NombreM').val(datos[1]);
+                $('#EmailM').val(datos[2]);
+                $('#PaswordM').val(datos[3]);
+                $('#NivelAccessoM').val(datos[4]);
+            });
+        });
+
+        //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
+        $(document).ready( function(){
+            $('.deletebtn').on('click',function(){
+
+                $('#eliminarUsuario').modal('show');
+                
+                $tr=$(this).closest('tr');
+                var datos = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+                //console.log(datos);
+
+                $('#idUsuarioMD').val(datos[0]);
+            });
+        });
+
+    </script>
 <!-- Fin del formulario-->
 
                         </div>
