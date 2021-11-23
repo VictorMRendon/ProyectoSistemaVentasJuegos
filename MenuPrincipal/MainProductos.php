@@ -11,6 +11,9 @@ $sql= "select * from productos $where";
 $resultado = $mysqli->query($sql);
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
 <?php include('../Modales/NewProductoModal.php')?>
 <?php include('../Modales/EditProductoModal.php')?>
 <?php include('../Modales/DeleteProductoModal.php')?>
@@ -79,7 +82,7 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Plataforma']?></td>
                                                 <td><?php echo $row['Precio']?></td>
                                                 <td> <!-- Btn Para editar -->
-                                                <button type="button" data-bs-toggle="modal" data-bs-target="#editEmpleado" 
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#editProducto" 
                                                          class="editbtn mb-2 btn btn-outline-success btn-sm font-weight-bold "> 
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square " viewBox="0 0 16 16">
                                                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
@@ -146,14 +149,15 @@ $resultado = $mysqli->query($sql);
                     return $(this).text();
                 }).get();
 
-                $('#CodigoM').val(datos[0]);
-                $('#TituloM').val(datos[1]);
-                $('#FechaPubM').val(datos[2]);
-                $('#DesarM').val(datos[3]);
-                $('#StockM').val(datos[4]);
-                $('#PresM').val(datos[5]);
-                $('#PlataformaM').val(datos[6]);
-                $('#PrecioM').val(datos[7]);
+                $('#CodM').val(datos[0]);
+                //$('#CodiM').val(datos[0]);
+                $('#TitM').val(datos[1]);
+                $('#FechaM').val(datos[2]);
+                $('#DesM').val(datos[3]);
+                $('#StkM').val(datos[4]);
+                $('#PresentM').val(datos[5]);
+                $('#PlatM').val(datos[6]);
+                $('#PrecM').val(datos[7]);
 
             });
         });
@@ -170,7 +174,7 @@ $resultado = $mysqli->query($sql);
                 }).get();
                 console.log(datos);
 
-                $('#idEmpleadoMD').val(datos[0]);
+                $('#CodidoM').val(datos[0]);
             });
         });
 

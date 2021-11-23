@@ -20,6 +20,10 @@ $resultado = $mysqli->query($sql);
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<?php include('../Modales/DeleteFacturaModal.php')?>
+
 <!-- Aqui pegas el div para el cuadro-->
 
 <div class="container text-center">
@@ -72,7 +76,7 @@ $resultado = $mysqli->query($sql);
                    // $fecha=date("Y-m-d H:i:s");
                  
                  ?>
-                 <div class="form-group w-100 mx-auto"> <!-- Fecha Compra -->
+                 <div class="form-group w-50 mx-auto"> <!-- Fecha Compra -->
                      <label for="Fecha de Compra" class="label font-weight-bold">Fecha de Compra:</label>
                      <input type="datetime" class="form-control" id="Fecha" name=""  disabled>
                      <!--input type="date" class="form-control" id="FechaCompra" name="FechaCompra"disabled value="<= $fecha?>">
@@ -178,7 +182,7 @@ $resultado = $mysqli->query($sql);
                                             <th>IVA</th>
                                             <th>Cambio</th>
                                             <th>idCliente</th>
-                                            <th>Opciones</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
 
@@ -198,9 +202,14 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['IVA']?></td>
                                                 <td><?php echo $row['Cambio']?></td>
                                                 <td><?php echo $row['idCliente']?></td>
-                                                <td >
-                                                <a href="../scrips/EditCompra.php" class="btn btn-outline-success btn-sm">Editar</a>
-                                                <a href="../scrips/DeleteCompra.php" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                                <td> <!-- Btn Para eliminar -->
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteProducto" 
+                                                         class="deletebtn mb-2 btn btn-outline-danger btn-sm font-weight-bold "> 
+                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                        </svg>
+                                                
+                                                </button>
                                                 </td>
                                             </tr>
                                        <?php }?>
@@ -292,6 +301,26 @@ $resultado = $mysqli->query($sql);
         }())
         
     </script>
+
+<script>
+        
+        //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
+        $(document).ready( function(){
+            $('.deletebtn').on('click',function(){
+
+                $('#deleteFactura').modal('show');
+                
+                $tr=$(this).closest('tr');
+                var datos = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+                console.log(datos);
+
+                $('#idFacturaM').val(datos[0]);
+            });
+        });
+
+</script>
 <!-- Fin del formulario-->
                         </div>
                 </main>
