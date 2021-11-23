@@ -10,6 +10,11 @@ $where="";
 $sql= "select * from productos $where";
 $resultado = $mysqli->query($sql);
 ?>
+
+<?php include('../Modales/NewProductoModal.php')?>
+<?php include('../Modales/EditProductoModal.php')?>
+<?php include('../Modales/DeleteProductoModal.php')?>
+
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
 
@@ -17,137 +22,51 @@ $resultado = $mysqli->query($sql);
  if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
 ?>
 <div class="container text-center">
-        <h1 class="text-center mt-3 display-4 font-weight-bold">
-        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
-  <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
-  <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-</svg>  
-        Registro de nuevo producto</h1>
-       <div class="rows">
-           <div class="col">
-
-                <div class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-50 mx-auto" style="background-color: rgb(255, 255, 255);">
-                    <form class=" needs-validation "  novalidate method="POST" action=""> <!-- Formulario -->
-
-                        <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
-                        <input type="hidden" id="idEmpleado" name="idEmpleado" value="1">
-                        
-                        <div class="form-group w-75 mx-auto"> <!-- Codigo-->
-                            <label for="Nombre" class="label font-weight-bold">Código de barras:</label>
-                            <input type="text" class="form-control" id="CodigoBarras" name="Codigo" placeholder="0001" autofocus required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese un código válido.</div>
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Nombre-->
-                            <label for="Nombre" class="label font-weight-bold"> Título: </label>
-                            <input type="text" class="form-control" id="Titulo" name="Titulo" placeholder="Star Wars" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese un título válido.</div>
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Fecha Publicacion -->
-                            <label for="Fecha de Nacimiento" class="label font-weight-bold">Fecha de publicación:</label>
-                            <input type="date" class="form-control" id="FechaPublic" name="FechaPublic">
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese una fecha válida.</div>
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Desarrolladora -->
-                            <label for="Nombre" class="label font-weight-bold">Desarrolladora:</label>
-                            <input type="text" class="form-control" id="Desarrolladora" name="Desarrolladora" placeholder="Sony"  required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese una desarrolladora válida.</div>
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Stock -->
-                            <label for="Nombre" class="label font-weight-bold">Stock:</label>
-                            <input type="number" class="form-control" id="Stock" name="Stock" placeholder="20" min="1" max="99" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese una cantidad válida.</div>                        
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Presentacion -->
-                            <label for="Sexo" class="label font-weight-bold">Presentación:</label>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="Pres" id="PresFisica" value="FISICO" checked>
-                                <label class="form-check-label" for="flexRadioDefault1"> FISICO </label>
-                            </div>
-                            <div class="form-check ">
-                                <input class="form-check-input" type="radio" name="Pres" id="PresDigital" value="DIGITAL">
-                                <label class="form-check-label" for="flexRadioDefault1"> DIGITAL </label>
-                            </div>
-                        </div>                    
-                        <!-- -->
-                        <div class="w-50 mx-auto"> <!-- Plataforma -->
-                            <label for="Plataforma" class="font-weight-bold">Plataforma:</label>
-                            <select name="Plataforma" id="Plataforma" class="custom-select form-select-lg mb-2" required>
-                                <option selected disabled>Escoja una opción...</option>
-                                <option value="Play Station 5">Play Station 5</option>
-                                <option value="XBOX Serie X">XBOX Serie X</option>
-                                <option value="Nintendo Swich">Nintendo Swich</option>
-                                <option value="PC">PC</option>
-                            </select>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Escoja una opción.</div>
-                        </div>
-
-                        <div class="form-group w-75 mx-auto"> <!-- Precio -->
-                            <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                            <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200.99" min="1" max="9999" step="0.01" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese una cantidad válida.</div>
-                        </div>
-
-                        <div class="form-group text-center"> <!-- Btn -->
-                            <button class="mt-3 btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
-                        </div>
-                        
-                    </form>
-                </div>
-             </div>
-        </div>
-    </div>
+        
 <!-- Para cerrar la validacion-->
 <?php } ?>
 
+        
     <!--Tabla-->
-<div id="layoutSidenav_content" class="shadow-lg p-3 mb-5 mt-5 bg-body rounded  w-100 mx-auto">
+<div id="layoutSidenav_content" class="shadow-lg p-3 mb-5 mt-1 bg-body rounded  w-100 mx-auto">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-1 mb-4 text-center">Registros</h1>                        
+                        <h1 class="mt-1 mb-4 text-center">Registros</h1>       
+                        
+                        <div class="form-group text-right"> <!--Boton para modal Empleado -->
+                                <button type="button" id="NuevoEmpleado" data-bs-toggle="modal" data-bs-target="#addProducto" class="mb-2 btn btn-outline-primary btn-sm font-weight-bold  "> 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg>    
+                                    Nuevo Producto
+                                </button>
+                            </div>                 
 
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                 Productos registrados
                             </div>
+
+                            
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead><!-- Inicio de la tabla-->
                                         <tr>
                                             <th>Código de barras</th>
                                             <th>Título</th>
-                                            <th>Fecha de publicación Desarrolladora</th>
+                                            <th>Fecha de publicación</th>
                                             <th>Desarrolladora</th>
                                             <th>Stock</th>
                                             <th>Presentación</th>
                                             <th>Plataforma</th>
                                             <th>Precio</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
                                         </tr>
                                     </thead>
-                                    <tfoot> <!-- Pie de la tabla-->
-                                        <tr>
-                                            <th>Código de barras</th>
-                                            <th>Título</th>
-                                            <th>Fecha de publicación Desarrolladora</th>
-                                            <th>Desarrolladora</th>
-                                            <th>Stock</th>
-                                            <th>Presentación</th>
-                                            <th>Plataforma</th>
-                                            <th>Precio</th>
-                                        </tr>
-                                    </tfoot>
+                                    
                                     <tbody>
                                         <?php while($row= $resultado->fetch_assoc()) { ?>
                                             <tr>
@@ -159,6 +78,26 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Presentacion']?></td>
                                                 <td><?php echo $row['Plataforma']?></td>
                                                 <td><?php echo $row['Precio']?></td>
+                                                <td> <!-- Btn Para editar -->
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#editEmpleado" 
+                                                         class="editbtn mb-2 btn btn-outline-success btn-sm font-weight-bold "> 
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square " viewBox="0 0 16 16">
+                                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                    </svg>    
+                                                
+                                                </button>
+                                                </td>
+                                                
+                                                <td> <!-- Btn Para eliminar -->
+                                                <button type="button" data-bs-toggle="modal" data-bs-target="#deleteProducto" 
+                                                         class="deletebtn mb-2 btn btn-outline-danger btn-sm font-weight-bold "> 
+                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                        <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                        </svg>
+                                                
+                                                </button>
+                                                </td>
                                             </tr>
                                        <?php }?>
                                     </tbody>
@@ -194,7 +133,48 @@ $resultado = $mysqli->query($sql);
                 })
             })()
     </script>
+<script>
+        //Script para obtener los valores que esten en el reglon seleccionado de la tabla y mandarlos a los input (Usando sus id)
+        //y mostrar el modal de eliminar.
+        $(document).ready( function(){
+            $('.editbtn').on('click',function(){
 
+                $('#editProducto').modal('show');
+                
+                $tr=$(this).closest('tr');
+                var datos = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+
+                $('#CodigoM').val(datos[0]);
+                $('#TituloM').val(datos[1]);
+                $('#FechaPubM').val(datos[2]);
+                $('#DesarM').val(datos[3]);
+                $('#StockM').val(datos[4]);
+                $('#PresM').val(datos[5]);
+                $('#PlataformaM').val(datos[6]);
+                $('#PrecioM').val(datos[7]);
+
+            });
+        });
+
+        //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
+        $(document).ready( function(){
+            $('.deletebtn').on('click',function(){
+
+                $('#deleteProducto').modal('show');
+                
+                $tr=$(this).closest('tr');
+                var datos = $tr.children("td").map(function(){
+                    return $(this).text();
+                }).get();
+                console.log(datos);
+
+                $('#idEmpleadoMD').val(datos[0]);
+            });
+        });
+
+</script>
 <!-- Fin del formulario-->
                             
                         </div>

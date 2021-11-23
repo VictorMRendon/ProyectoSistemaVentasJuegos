@@ -165,7 +165,7 @@ $resultado = $mysqli->query($sql);
             });
         });
 
-    </script>
+</script>
 <!-- Fin del formulario-->
                         </div>
                 </main>
