@@ -4,9 +4,10 @@
             <div class="modal-content">   
                 <div class="modal-header alert-danger" >
                     <h2 class="mx-auto display-7 font-weight-bold modal-title" id="modalTitulo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+                        
+                        <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z"/>
                         </svg>
                           Eliminar usuario
                     </h2>
@@ -25,10 +26,10 @@
                         <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
                         <input type="hidden" id="idUsuarioMD" name="idUsuarioD" >
 
-                        <h3>¿Está seguro de eliminar el registro?</h3>
+                        <h4 class="text-center">¿Está seguro de eliminar el registro?</h4>
 
                         <div class="text-center">
-                        <button class=" btn btn-outline-success  font-weight-bold mt-2" type="submit" id="DeleteCambio" name="DeleteCambios" >Confirmar eliminación</button>
+                        <button class=" btn btn-outline-warning  font-weight-bold mt-2" type="submit" id="DeleteCambio" name="DeleteCambios" >Confirmar eliminación</button>
                         </div>
 
                         </form>
