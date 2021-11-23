@@ -1,5 +1,5 @@
 <!--Modal de registro -->
-<div id="editUsuario" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitulo" >
+    <div id="editUsuario" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitulo" >
         <div class="modal-dialog w-75 modal-center">
             <div class="modal-content">   
                 <div class="modal-header alert-success" >
@@ -11,7 +11,7 @@
                           Editar usuario
                     </h2>
                     <div> <!-- Btn cerrar pestana -->    
-                    <button type="button" class="btn-close ml-auto btn-outline-danger" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close ml-auto btn-outline-danger" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 
                     </div>
 
@@ -74,5 +74,6 @@
         </div>
 
     </div>
+<!--Modal de registro Fin-->
 
     

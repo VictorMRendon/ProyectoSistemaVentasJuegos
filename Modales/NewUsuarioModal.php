@@ -74,3 +74,4 @@
         </div>
 
     </div>
+<!--Modal de registro Fin-->

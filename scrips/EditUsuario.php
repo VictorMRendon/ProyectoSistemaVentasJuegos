@@ -29,11 +29,6 @@
         }
         else{
             echo "Error al obtener contra de la bd.";
-        }
-        
-
-       
+        }      
     }  
-    
-    
 ?>

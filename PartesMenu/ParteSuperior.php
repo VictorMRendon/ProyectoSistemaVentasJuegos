@@ -36,8 +36,8 @@
                     <i class="fas fa-user fa-fw"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuración</a></li>
-                        <li><hr class="dropdown-divider" /></li>
+                        <!-- <li><a class="dropdown-item" href="#!">Configuración</a></li>
+                        <li><hr class="dropdown-divider" /></li> -->
                         <li><a class="dropdown-item" href="../scrips/LoginOut.php">Salir</a></li>
                     </ul>
                 </li>
@@ -78,7 +78,7 @@
                                                 <!--Apaprtados inicio-->
                                                 <a class="nav-link" href="../MenuPrincipal/MainUsuarios.php">Usuarios</a>
                                                 <a class="nav-link" href="../MenuPrincipal/MainEmpleados.php">Empleados</a>
-                                                <a class="nav-link" href="../MenuPrincipal/MainClientes.php">Clientes</a>
+                                                <!-- <a class="nav-link" href="../MenuPrincipal/MainClientes.php">Clientes</a> -->
                                                 <!--Apaprtados inicio-->
                                         </nav>
                                     </div>
