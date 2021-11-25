@@ -103,7 +103,7 @@
 
             })
     }
-    function CargarDatosGraficoBarHorizontal(){
+    function CargarDatosGraficoBarHorizontal(){ // ahora dona
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
                 type:'POST'
