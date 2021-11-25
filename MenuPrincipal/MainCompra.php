@@ -181,7 +181,9 @@ $resultado = $mysqli->query($sql);
                                             <th>Pago</th>
                                             <th>IVA</th>
                                             <th>Cambio</th>
-                                            <!-- <th>idCliente</th> ESTOCOMENTO -->
+
+                                            <!-- <th>idCliente</th> -->
+
                                             <th>Eliminar</th>
                                         </tr>
                                     </thead>
@@ -201,7 +203,9 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Pago']?></td>
                                                 <td><?php echo $row['IVA']?></td>
                                                 <td><?php echo $row['Cambio']?></td>
-                                                <!-- <td><php echo $row['idCliente']?></td> TENIA EL SIGNO DE PREGUNTA EL PHP SE LO QUITE PARA PODER COMENTARLO-->
+
+                                                <!-- <td><php echo $row['idCliente']?></td> -->
+
                                                 <td> <!-- Btn Para eliminar -->
                                                 <button type="button" data-bs-toggle="modal" data-bs-target="#deleteProducto" 
                                                          class="deletebtn mb-2 btn btn-outline-danger btn-sm font-weight-bold "> 
