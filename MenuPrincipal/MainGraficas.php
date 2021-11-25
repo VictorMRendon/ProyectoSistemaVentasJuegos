@@ -22,8 +22,8 @@
                                             <div class="col-lg-4 ml-5 ">
                                                 <canvas id="graficobar" width="400" height="400"></canvas>
                                             </div>
-                                            <div class="col-lg-4 mr-5">
-                                                <canvas id="graficobarhorizontal" width="400" height="400"></canvas>
+                                            <div class="col-lg-4 mr-5 ml-5">
+                                                <canvas id="graficodoughnut" width="400" height="400"></canvas>
                                             </div>
                                                 
                                             <div class="col-lg-4 mt-5 mx-auto">
@@ -115,10 +115,10 @@
                     var data = JSON.parse(resp);
                     for(var i=0;i<data.length;i++){
                         titulo.push(data[i][1]);
-                        cantidad.push(data[i][4]);//2
+                        cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
-                    }
-                    CrearGrafico(titulo,cantidad,colores,'horizontalBar','GRAFICO HORIZONTAL DE LOS PRODUCTOS','graficobarhorizontal');
+                    }                                       //horizontalBar
+                    CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
 
                 //}
 
