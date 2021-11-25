@@ -15,7 +15,7 @@
                         <div class="col-lg-12" style="padding-top:20px;">
                             <div class="card">
                                     <div class="card-header ">
-                                        GRAFICAS DE STOCK
+                                        GRAFICAS 
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
@@ -28,6 +28,10 @@
                                                 
                                             <div class="col-lg-4 mt-5 mx-auto">
                                                 <canvas id="graficopie" width="400" height="400"></canvas>
+                                            </div>
+
+                                            <div class="col-lg-4 mt-5">
+                                                <canvas id="graficoLine" width="400" height="400"></canvas>
                                             </div>
 
                                         </div>
@@ -82,6 +86,7 @@
     CargarDatosGraficoBar();
     CargarDatosGraficoBarHorizontal();
     CargarDatosGraficoPie();
+    CargarDatosGraficoline();
     function CargarDatosGraficoBar(){
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
@@ -146,6 +151,28 @@
 
             })
     }
+
+    function CargarDatosGraficoline(){ //INTENTO DE COSTO TOTAL DE PAGO EN EL DIA
+            $.ajax({
+                url:'../GRAFICAS/controlado_graficoImporte.php',
+                type:'POST'
+            }).done(function(resp){
+                //if(resp.lenght>0){
+                    var titulo = [];
+                    var cantidad = [];
+                    var colores = [];
+                    var data = JSON.parse(resp);
+                    for(var i=0;i<data.length;i++){
+                        titulo.push(data[i][6]);
+                        cantidad.push(data[i][8]);//2
+                        colores.push(colorRGB());
+                    }
+                    CrearGrafico(titulo,cantidad,colores,'line','Line de ganancia','graficoLine');
+
+                //} 
+
+            })
+    } 
 
     function generarNumero(numero){
 	    return (Math.random()*numero).toFixed(0);
