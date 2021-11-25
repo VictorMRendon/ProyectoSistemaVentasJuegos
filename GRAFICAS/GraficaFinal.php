@@ -53,6 +53,9 @@
                                 <button class="btn btn-danger" onclick="CargarDatosGraficoDoughnut()">BUSCAR</button>
                             </div>
                             <div class="col-lg-4">
+                                <canvas id="graficoLine" width="400" height="400"></canvas>
+                            </div>
+                            <div class="col-lg-4">
                                 <canvas id="graficoDoughnut_parametro" width="400" height="400"></canvas>
                             </div>
                             <div class="col-lg-4">
@@ -94,6 +97,7 @@
     CargarDatosGraficoBar();
     CargarDatosGraficoBarHorizontal();
     CargarDatosGraficoPie();
+    CargarDatosGraficoline();
     function CargarDatosGraficoBar(){
             $.ajax({
                 url:'controlado_grafico.php',
@@ -159,9 +163,9 @@
             })
     }
 
-    function CargarDatosGraficoPie(){ //INTENTO DE COSTO TOTAL DE PAGO EN EL DIA
+    function CargarDatosGraficoline(){ //INTENTO DE COSTO TOTAL DE PAGO EN EL DIA
             $.ajax({
-                url:'controlado_grafico.php',
+                url:'controlado_graficoImporte.php',
                 type:'POST'
             }).done(function(resp){
                 //if(resp.lenght>0){
@@ -170,11 +174,11 @@
                     var colores = [];
                     var data = JSON.parse(resp);
                     for(var i=0;i<data.length;i++){
-                        titulo.push(data[i][1]);
-                        cantidad.push(data[i][4]);//2
+                        titulo.push(data[i][6]);
+                        cantidad.push(data[i][8]);//2
                         colores.push(colorRGB());
                     }
-                    CrearGrafico(titulo,cantidad,colores,'pie','GRAFICO EN PIE DE LOS PRODUCTOS','graficopie');
+                    CrearGrafico(titulo,cantidad,colores,'line','Line de ganancia','graficoLine');
 
                 //} 
 

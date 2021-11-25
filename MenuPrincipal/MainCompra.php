@@ -36,7 +36,7 @@ $resultado = $mysqli->query($sql);
              <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
              <input type="hidden" id="idFactura" name="idFactura" value="1">
 
-             <div class="form-group w-75 mx-auto"><!--Id de empleado -->
+             <div class="form-group w-50 mx-auto"><!--Id de empleado -->
                      <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
                      <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
                      <!-- Los warning -->
@@ -44,7 +44,7 @@ $resultado = $mysqli->query($sql);
                      <div class="invalid-feedback">Ingrese su ID de Empleado</div>
                  </div>
 
-                 <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                 <div class="form-group w-50 mx-auto"><!-- Nombre de empleado -->
                      <label for="NombreEmpleado" class="label font-weight-bold">Nombre de Empleado:</label>
                      <input type="text" class="form-control" id="NombreEmpleado" name="NombreEmpleado" placeholder="Jose Daniel Salinas Tovar" required>
                      <!-- Los warning -->
@@ -85,7 +85,7 @@ $resultado = $mysqli->query($sql);
                      <div class="invalid-feedback">Ingrese una fecha válida.</div>
                  </div>
 
-                 <div class="form-group w-100 mx-auto"> <!-- Codigo-->
+                 <div class="form-group w-50 mx-auto"> <!-- Codigo-->
                      <label for="Nombre" class="label font-weight-bold">Código de barras:</label>
                      <input type="text" class="form-control" id="CodigoBarras" name="Codigo" placeholder="0001" autofocus required>
                      <div class="valid-feedback">Verificado</div>
@@ -99,7 +99,7 @@ $resultado = $mysqli->query($sql);
                      <div class="invalid-feedback">Ingrese una cantidad válida de cantidad.</div>
                  </div>
 
-                 <div class="form-group w-100 mx-auto"> <!-- Nombre del producto vendido-->
+                 <div class="form-group w-50 mx-auto"> <!-- Nombre del producto vendido-->
                      <label for="Nombre" class="label font-weight-bold"> Título: </label>
                      <input type="text" class="form-control" id="Titulo" name="TituloJuego" placeholder="Star Wars" required>
                      <div class="valid-feedback">Verificado</div>
@@ -113,7 +113,7 @@ $resultado = $mysqli->query($sql);
                      <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
                  </div>                
 
-                 <div class="form-group w-100 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
+                 <div class="form-group w-50 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
                      <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
                      <input type="number" class="form-control" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" step="0.01" required>
                      <div class="valid-feedback">Verificado</div>
@@ -127,12 +127,12 @@ $resultado = $mysqli->query($sql);
                      <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                  </div>
 
-                 <div class="form-group w-25 mx-auto"> <!-- Iva -->
+                 <!-- <div class="form-group w-25 mx-auto"> 
                      <label for="IVA" class="label font-weight-bold">IVA:</label>
                      <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" step="0.01"  required>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una cantidad válida de IVA.</div>
-                 </div>
+                 </div> -->
 
                  
 
@@ -179,7 +179,7 @@ $resultado = $mysqli->query($sql);
                                             <th>Precio</th>
                                             <th>Importe total</th>
                                             <th>Pago</th>
-                                            <th>IVA</th>
+                                            <!-- <th>IVA</th> -->
                                             <th>Cambio</th>
                                             <!-- <th>idCliente</th> ESTOCOMENTO -->
                                             <th>Eliminar</th>
@@ -199,7 +199,7 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Precio']?></td>
                                                 <td><?php echo $row['ImporteTotal']?></td>
                                                 <td><?php echo $row['Pago']?></td>
-                                                <td><?php echo $row['IVA']?></td>
+                                                <!-- <td><php echo $row['IVA']?></td> -->
                                                 <td><?php echo $row['Cambio']?></td>
                                                 <!-- <td><php echo $row['idCliente']?></td> TENIA EL SIGNO DE PREGUNTA EL PHP SE LO QUITE PARA PODER COMENTARLO-->
                                                 <td> <!-- Btn Para eliminar -->

@@ -24,7 +24,7 @@
         }
 
         function TraerDatosGraficoVendido(){
-            $sql = "CALL SELECT * FROM factura";//SELECT * FROM productos  //CALL SP_DATOSGRAFICOS_BAR
+            $sql = "SELECT * FROM factura";//SELECT * FROM productos  //CALL SP_DATOSGRAFICOS_BAR
             $arreglo = array();
 
             if ($consulta = $this->conexion->conexion->query($sql)){
