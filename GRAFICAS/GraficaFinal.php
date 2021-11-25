@@ -159,6 +159,28 @@
             })
     }
 
+    function CargarDatosGraficoPie(){ //INTENTO DE COSTO TOTAL DE PAGO EN EL DIA
+            $.ajax({
+                url:'controlado_grafico.php',
+                type:'POST'
+            }).done(function(resp){
+                //if(resp.lenght>0){
+                    var titulo = [];
+                    var cantidad = [];
+                    var colores = [];
+                    var data = JSON.parse(resp);
+                    for(var i=0;i<data.length;i++){
+                        titulo.push(data[i][1]);
+                        cantidad.push(data[i][4]);//2
+                        colores.push(colorRGB());
+                    }
+                    CrearGrafico(titulo,cantidad,colores,'pie','GRAFICO EN PIE DE LOS PRODUCTOS','graficopie');
+
+                //} 
+
+            })
+    } 
+
     function generarNumero(numero){
 	    return (Math.random()*numero).toFixed(0);
     }

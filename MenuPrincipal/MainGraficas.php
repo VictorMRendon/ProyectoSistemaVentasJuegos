@@ -14,19 +14,19 @@
 
                         <div class="col-lg-12" style="padding-top:20px;">
                             <div class="card">
-                                    <div class="card-header">
-                                        GRAFICO CON CHARTJS
+                                    <div class="card-header ">
+                                        GRAFICAS DE STOCK
                                     </div>
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-lg-4">
+                                            <div class="col-lg-4 ml-5 ">
                                                 <canvas id="graficobar" width="400" height="400"></canvas>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <canvas id="graficobarhorizontal" width="400" height="400"></canvas>
+                                            <div class="col-lg-4 mr-5 ml-5">
+                                                <canvas id="graficodoughnut" width="400" height="400"></canvas>
                                             </div>
-
-                                            <div class="col-lg-4">
+                                                
+                                            <div class="col-lg-4 mt-5 mx-auto">
                                                 <canvas id="graficopie" width="400" height="400"></canvas>
                                             </div>
 
@@ -34,7 +34,7 @@
                                     </div>
                             </div>
 
-                            <div class="card">
+                            <!-- <div class="card">
                                     <div class="card-header">
                                         GRAFICO CON CHARTJS CON PARAMETROS
                                     </div>
@@ -65,7 +65,7 @@
 
                                         </div>
                                     </div>
-                            </div>
+                            </div> -->
                     </div>
 
                 </main>
@@ -103,7 +103,7 @@
 
             })
     }
-    function CargarDatosGraficoBarHorizontal(){
+    function CargarDatosGraficoBarHorizontal(){ // ahora dona
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
                 type:'POST'
@@ -115,10 +115,10 @@
                     var data = JSON.parse(resp);
                     for(var i=0;i<data.length;i++){
                         titulo.push(data[i][1]);
-                        cantidad.push(data[i][4]);//2
+                        cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
-                    }
-                    CrearGrafico(titulo,cantidad,colores,'horizontalBar','GRAFICO EN BARRAS HORIZONTAL DE LOS PRODUCTOS','graficobarhorizontal');
+                    }                                       //horizontalBar
+                    CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
 
                 //}
 
