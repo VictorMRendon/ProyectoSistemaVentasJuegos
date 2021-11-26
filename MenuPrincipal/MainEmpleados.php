@@ -49,7 +49,7 @@ $resultado = $mysqli->query($sql);
                                             <th>Nombre</th>
                                             <th>Apellidos</th>
                                             <th>Fecha de nacimiento</th>
-                                            <th>Sexo</th>
+                                            <th>Género</th>
                                             <th>Télefono</th>
                                             <th>Dirección</th>
                                             <th>Nivel Acceso</th>
