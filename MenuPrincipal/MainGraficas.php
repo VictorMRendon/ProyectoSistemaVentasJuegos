@@ -101,15 +101,18 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
-                    }
+
+                    }//
+
                     CrearGrafico(titulo,cantidad,colores,'bar','GRAFICO EN BARRAS DE LOS PRODUCTOS','graficobar');
 
                 //} 
 
             })
     }
-    function CargarDatosGraficoBarHorizontal(){ // ahora donaaaa yaaaaaaaaaaaaaaaa
-        //hhhhhhhhhh
+
+    function CargarDatosGraficoBarHorizontal(){ // ahora donaaaaaaaaa
+
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
                 type:'POST'
