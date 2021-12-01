@@ -101,7 +101,11 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
+<<<<<<< HEAD
                     }//Stock de los productos
+=======
+                    }
+>>>>>>> 041827d2fa849db3a3ced8eaf9d69b8803d50ac4
                     CrearGrafico(titulo,cantidad,colores,'bar','GRAFICO EN BARRAS DE LOS PRODUCTOS','graficobar');
 
                 //} 
@@ -122,7 +126,11 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
+<<<<<<< HEAD
                     }                                       //horizontalBar costo de los productos
+=======
+                    }                                       //horizontalBar
+>>>>>>> 041827d2fa849db3a3ced8eaf9d69b8803d50ac4
                     CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
 
                 //}
@@ -144,7 +152,11 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
+<<<<<<< HEAD
                     }//Stock
+=======
+                    }
+>>>>>>> 041827d2fa849db3a3ced8eaf9d69b8803d50ac4
                     CrearGrafico(titulo,cantidad,colores,'pie','GRAFICO EN PIE DE LOS PRODUCTOS','graficopie');
 
                 //} 
@@ -167,7 +179,11 @@
                         cantidad.push(data[i][8]);//2
                         colores.push(colorRGB());
                     }
+<<<<<<< HEAD
                     CrearGrafico(titulo,cantidad,colores,'line','Linea de ganancia','graficoLine');
+=======
+                    CrearGrafico(titulo,cantidad,colores,'line','Line de ganancia','graficoLine');
+>>>>>>> 041827d2fa849db3a3ced8eaf9d69b8803d50ac4
 
                 //} 
 
