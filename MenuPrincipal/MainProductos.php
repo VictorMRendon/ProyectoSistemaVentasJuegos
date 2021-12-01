@@ -35,7 +35,7 @@ $resultado = $mysqli->query($sql);
                 <main>
                     <div class="container-fluid">
                         <h1 class="mt-1 mb-4 text-center">Registros</h1>       
-                        <?php //Para mostrar secciones segun el nivel de acceso
+                        <?php //Para mostrar secciones segun el nivel de acceso a
                                         if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
                                 ?>
                             <div class="form-group text-right"> <!--Boton para modal Empleado -->
