@@ -13,9 +13,12 @@
         <title>Menú principal</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" /> 
         <link href="css/styles.css" rel="stylesheet" />
-        <script src="jquery/jquery-3.3.1.min.js"></script>
+        <!-- <script src="jquery/jquery-3.3.1.min.js"></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
+
 
     <body class="sb-nav-fixed">
 
@@ -33,8 +36,8 @@
                     <i class="fas fa-user fa-fw"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Configuración</a></li>
-                        <li><hr class="dropdown-divider" /></li>
+                        <!-- <li><a class="dropdown-item" href="#!">Configuración</a></li>
+                        <li><hr class="dropdown-divider" /></li> -->
                         <li><a class="dropdown-item" href="../scrips/LoginOut.php">Salir</a></li>
                     </ul>
                 </li>
@@ -75,7 +78,7 @@
                                                 <!--Apaprtados inicio-->
                                                 <a class="nav-link" href="../MenuPrincipal/MainUsuarios.php">Usuarios</a>
                                                 <a class="nav-link" href="../MenuPrincipal/MainEmpleados.php">Empleados</a>
-                                                <a class="nav-link" href="../MenuPrincipal/MainClientes.php">Clientes</a>
+                                                <!-- <a class="nav-link" href="../MenuPrincipal/MainClientes.php">Clientes</a> -->
                                                 <!--Apaprtados inicio-->
                                         </nav>
                                     </div>

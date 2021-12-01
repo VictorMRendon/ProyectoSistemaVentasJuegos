@@ -2,13 +2,15 @@
     require_once("conexion.php");
     if(isset($_POST['DeleteCambios']))
     {
-        $idUsuario = $_POST['idUsuarioD'];    
+        $Codigo = $_POST['Cod'];    
     
-        $sql = "DELETE FROM usuarios WHERE idUsuario = $idUsuario";
+        $sql = "DELETE FROM productos WHERE CodigoBarras = $Codigo";
+
+        echo $sql;
         $resultado = $mysqli->query($sql);
 
         if($resultado)
-        { header("Location: ../MenuPrincipal/MainUsuarios.php"); }
+        { header("Location: ../MenuPrincipal/MainProductos.php"); }
         else { echo "Error al eliminar."; }
     }
 
