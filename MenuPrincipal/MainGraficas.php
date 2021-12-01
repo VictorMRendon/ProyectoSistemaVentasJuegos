@@ -101,7 +101,7 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
-                    }
+                    }//Stock de los productos
                     CrearGrafico(titulo,cantidad,colores,'bar','GRAFICO EN BARRAS DE LOS PRODUCTOS','graficobar');
 
                 //} 
@@ -122,7 +122,7 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
-                    }                                       //horizontalBar
+                    }                                       //horizontalBar costo de los productos
                     CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
 
                 //}
@@ -144,7 +144,7 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
-                    }
+                    }//Stock
                     CrearGrafico(titulo,cantidad,colores,'pie','GRAFICO EN PIE DE LOS PRODUCTOS','graficopie');
 
                 //} 
@@ -167,7 +167,7 @@
                         cantidad.push(data[i][8]);//2
                         colores.push(colorRGB());
                     }
-                    CrearGrafico(titulo,cantidad,colores,'line','Line de ganancia','graficoLine');
+                    CrearGrafico(titulo,cantidad,colores,'line','Linea de ganancia','graficoLine');
 
                 //} 
 
