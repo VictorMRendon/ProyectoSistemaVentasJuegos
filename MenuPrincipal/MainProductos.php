@@ -21,7 +21,7 @@ $resultado = $mysqli->query($sql);
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
 
-<?php //Para mostrar secciones segun el nivel de acceso a
+<?php //Para mostrar secciones segun el nivel de acceso a a
  if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
 ?>
 <div class="container text-center">
