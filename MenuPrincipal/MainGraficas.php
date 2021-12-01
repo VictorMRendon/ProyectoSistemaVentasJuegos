@@ -108,7 +108,7 @@
 
             })
     }
-    function CargarDatosGraficoBarHorizontal(){ // ahora donaa
+    function CargarDatosGraficoBarHorizontal(){ // ahora donaaaa
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
                 type:'POST'
