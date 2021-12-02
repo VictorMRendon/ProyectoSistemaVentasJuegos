@@ -104,7 +104,7 @@
 
                     }//
 
-                    CrearGrafico(titulo,cantidad,colores,'bar','GRAFICO EN BARRAS DE LOS PRODUCTOS','graficobar');
+                    CrearGrafico(titulo,cantidad,colores,'bar','Stock','graficobar');
 
                 //} 
 
@@ -171,7 +171,7 @@
                         cantidad.push(data[i][8]);//2
                         colores.push(colorRGB());
                     }
-                    CrearGrafico(titulo,cantidad,colores,'line','Linea de ganancia','graficoLine');
+                    CrearGrafico(titulo,cantidad,colores,'line','Ganancia total','graficoLine');
 
                 //} 
 
