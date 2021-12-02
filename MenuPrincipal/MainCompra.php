@@ -183,8 +183,12 @@ $resultado = $mysqli->query($sql);
                                             <th>Cambio</th>
 
                                             <!-- <th>idCliente</th> -->
-
+                                            <?php //Para mostrar secciones segun el nivel de acceso a
+                                                if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
+                                            ?> 
                                             <th>Eliminar</th>
+                                            <!-- Para cerrar la validacion-->
+                                            <?php } ?>  
                                         </tr>
                                     </thead>
 
@@ -205,7 +209,10 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Cambio']?></td>
 
                                                 <!-- <td><php echo $row['idCliente']?></td> -->
-
+<!-- <th>idCliente</th> -->
+<?php //Para mostrar secciones segun el nivel de acceso a
+                                                if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
+                                            ?> 
                                                 <td> <!-- Btn Para eliminar -->
                                                 <button type="button" data-bs-toggle="modal" data-bs-target="#deleteProducto" 
                                                          class="deletebtn mb-2 btn btn-outline-danger btn-sm font-weight-bold "> 
@@ -215,6 +222,8 @@ $resultado = $mysqli->query($sql);
                                                 
                                                 </button>
                                                 </td>
+                                                <!-- Para cerrar la validacion-->
+                                            <?php } ?>  
                                             </tr>
                                        <?php }?>
                                     </tbody>

@@ -36,8 +36,8 @@
                     <i class="fas fa-user fa-fw"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <!-- <li><a class="dropdown-item" href="#!">Configuración</a></li>
-                        <li><hr class="dropdown-divider" /></li> -->
+                        <li><a class="dropdown-item" href="../MenuPrincipal/MainPerfilEmpleado.php">Ver perfil</a></li>
+                        <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="../scrips/LoginOut.php">Salir</a></li>
                     </ul>
                 </li>
@@ -138,4 +138,3 @@
                     </nav>
             </div>
         <!--Parte superior fin-->  
-        
