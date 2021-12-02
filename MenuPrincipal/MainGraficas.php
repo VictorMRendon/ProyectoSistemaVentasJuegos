@@ -101,14 +101,18 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
+
                     }//
+
                     CrearGrafico(titulo,cantidad,colores,'bar','GRAFICO EN BARRAS DE LOS PRODUCTOS','graficobar');
 
                 //} 
 
             })
     }
-    function CargarDatosGraficoBarHorizontal(){ // ahora dona
+
+    function CargarDatosGraficoBarHorizontal(){ // ahora donaaaaaaaaa
+
             $.ajax({
                 url:'../GRAFICAS/controlado_grafico.php',
                 type:'POST'
@@ -122,7 +126,7 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
-                    }                                       //horizontalBar costo de los productos
+                    }                                       //horizontalBar
                     CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
 
                 //}
@@ -144,7 +148,7 @@
                         titulo.push(data[i][1]);
                         cantidad.push(data[i][4]);//2
                         colores.push(colorRGB());
-                    }//Stock
+                    }
                     CrearGrafico(titulo,cantidad,colores,'pie','GRAFICO EN PIE DE LOS PRODUCTOS','graficopie');
 
                 //} 
