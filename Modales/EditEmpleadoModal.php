@@ -61,7 +61,7 @@
 
                             <div class="w-50 mx-auto"> <!-- Caja de opciones -->
                                 <label for="Nivel de Acceso" class="font-weight-bold">Género:</label>
-                                <select name="Género" id="Género" class="custom-select form-select-lg mb-2" required>
+                                <select name="Genero" id="GeneroM" class="custom-select form-select-lg mb-2" required>
                                     <option selected disabled>Escoja una opción...</option>
                                     <option value="M">Masculino</option>
                                     <option value="F">Femenino</option>

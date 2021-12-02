@@ -4,7 +4,7 @@
     $Nombre=$_POST['Nombre'];
     $Apellidos=$_POST['Apellidos'];
     $FechaNaci=$_POST['FechaNaci'];
-    $Sexo=$_POST['Sexo'];
+    $Sexo=$_POST['Genero'];
     $Telefono=$_POST['Telefono'];
     $Direccion=$_POST['Direccion'];
     $NivAcc=$_POST['NivelAcc'];

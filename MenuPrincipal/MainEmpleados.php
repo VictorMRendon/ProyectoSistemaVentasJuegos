@@ -141,7 +141,7 @@ $resultado = $mysqli->query($sql);
                 $('#NombreEmpleadoM').val(datos[1]);
                 $('#ApellidosEmpleadoM').val(datos[2]);
                 $('#FechNaciM').val(datos[3]);
-                $('#Sex').val(datos[4]);
+                $('#GeneroM').val(datos[4]);
                 $('#TelM').val(datos[5]);
                 $('#DirecM').val(datos[6]);
                 $('#NivAccM').val(datos[7]);
