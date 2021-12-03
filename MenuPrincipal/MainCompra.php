@@ -35,7 +35,9 @@ $resultado = $mysqli->query($sql);
 
              <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
              <input type="hidden" id="idFactura" name="idFactura" value="1">
-
+                <div id="buscar">
+                    ds
+                </div>
              <div class="form-group w-50 mx-auto"><!--Id de empleado -->
                      <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
                      <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
@@ -254,7 +256,7 @@ $resultado = $mysqli->query($sql);
                 
     </div>
     
-<script src="../js/jquery-3.5.1.slim.min.js" ></script>
+<!-- <script src="../js/jquery-3.5.1.slim.min.js" ></script> -->
     <script src="../js/bootstrap.bundle.min.js" ></script>
     <script> //scrip para validar campos
         // Example starter JavaScript for disabling form submissions if there are invalid fields

@@ -31,6 +31,37 @@
                             <div class="invalid-feedback">Ingrese un código válido.</div>
                         </div>
 
+                        <div class="w-50 mx-auto"> <!-- Proveedor -->                        
+                            <label for="Plataforma" class="font-weight-bold">Proveedor:</label>
+                            <select name="Prov" id="ProveM" class="custom-select form-select-lg mb-4" required>
+                        
+                                <?php
+                                    // require_once("conexion.php");
+                                    // $sqlProv=mysqli_query($mysqli,"select idProveedor, Nombre from proveedores order by Nombre asc");
+                                    // $resultado=mysqli_num_rows($sqlProv);
+
+                                    $inc= include("../scrips/conet.php");
+                                    if($inc){
+                                        $sql= "select idProveedor, Nombre from proveedores order by Nombre asc";           
+                                        $resultado2 = mysqli_query($conex,$sql);
+                                        if($resultado2){
+                                            while($row= $resultado2->fetch_array()) {
+                                                $id = $row['idProveedor'];
+                                                $Nombre=$row['Nombre'];
+                                                ?>
+                                            <option  value="<?php echo $id;?>" > <?php echo $Nombre;?> </option>
+                                        <?php
+                                            }
+                                        }
+
+                                    }
+                                ?>
+                        
+                            </select>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Escoja una opción.</div>
+                        </div>  
+
                         <div class="form-group w-75 mx-auto"> <!-- Nombre-->
                             <label for="Nombre" class="label font-weight-bold"> Título: </label>
                             <input type="text" class="form-control" id="TituloM" name="Titulo" placeholder="Star Wars" required>
@@ -96,7 +127,7 @@
 
                         <div class="form-group w-25 mx-auto"> <!-- Precio -->
                             <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                            <input type="number" class="form-control" id="PrecioM" name="Precio" placeholder="200.99" min="1" max="9999" step="0.01" required>
+                            <input type="number" class="form-control" id="PrecioM" name="Precio" placeholder="200.99" min="1" max="9999" step="00000.01" required>
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese una cantidad válida.</div>
                         </div>

@@ -9,12 +9,13 @@
     $Pres=$_POST['Pres'];
     $Plataforma=$_POST['Plataforma'];
     $Precio=$_POST['Precio'];
+    $Prov=$_POST['Prov'];
 
-    $sql = "insert into productos (CodigoBarras , Titulo, FechaPublicacion, Desarrolladora, Stock, Presentacion, Plataforma,Precio) values ('$Codigo','$Titulo','$FechaPublic','$Desarrolladora','$Stock','$Pres','$Plataforma','$Precio')";
+    $sql = "insert into productos (CodigoBarras , Titulo, FechaPublicacion, Desarrolladora, Stock, Presentacion, Plataforma,Precio,idProveedor) values ('$Codigo','$Titulo','$FechaPublic','$Desarrolladora','$Stock','$Pres','$Plataforma','$Precio','$Prov')";
     $resultado = $mysqli->query($sql);
 
     if($resultado)
     { header("Location: ../MenuPrincipal/MainProductos.php"); }
-    else { echo "Error al registrar."; }
+    else { echo "$sql Error al registrar."; }
     
 ?>

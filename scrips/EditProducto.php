@@ -9,9 +9,10 @@
     $Pres=$_POST['Pres'];
     $Plataforma=$_POST['Plataforma'];
     $Precio=$_POST['Precio'];
+    $Prov=$_POST['Prov'];
 
     //$sql = "insert into productos (CodigoBarras , Titulo, FechaPublicacion, Desarrolladora, Stock, Presentacion, Plataforma,Precio) values ('$Codigo','$Titulo','$FechaPublic','$Desarrolladora','$Stock','$Pres','$Plataforma','$Precio')";
-    $sql="update productos set Titulo='$Titulo', FechaPublicacion='$FechaPublic',Desarrolladora='$Desarrolladora', Stock='$Stock',Presentacion='$Pres',Plataforma='$Plataforma', Precio='$Precio' where CodigoBarras = $Codigo";
+    $sql="update productos set Titulo='$Titulo', FechaPublicacion='$FechaPublic',Desarrolladora='$Desarrolladora', Stock='$Stock',Presentacion='$Pres',Plataforma='$Plataforma', Precio='$Precio', idProveedor='$Prov' where CodigoBarras = $Codigo";
     echo $sql;
     $resultado = $mysqli->query($sql);
 

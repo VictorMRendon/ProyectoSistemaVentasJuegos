@@ -7,8 +7,13 @@
 
 <?php
 $where="";
-$sql= "select * from productos $where";
-$resultado = $mysqli->query($sql);
+$sql= "select * from  $where";
+$sql2 = "select p.CodigoBarras, p.Titulo, p.FechaPublicacion, p.Desarrolladora, p.Stock, p.Presentacion, p.Plataforma, p.Precio, p.idProveedor, prov.Nombre, prov.idProveedor
+         from productos p
+         inner join proveedores prov
+         on p.idProveedor = prov.idProveedor
+         order by p.Titulo asc";
+$resultado = $mysqli->query($sql2);
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -69,6 +74,7 @@ $resultado = $mysqli->query($sql);
                                             <th>Presentación</th>
                                             <th>Plataforma</th>
                                             <th>Precio</th>
+                                            <th>Proveedor</th>
                                             <?php //Para mostrar secciones segun el nivel de acceso a
                                                 if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
                                             ?>     
@@ -91,6 +97,7 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['Presentacion']?></td>
                                                 <td><?php echo $row['Plataforma']?></td>
                                                 <td><?php echo $row['Precio']?></td>
+                                                <td><?php echo $row['Nombre']?></td>
                                                 <?php //Para mostrar secciones segun el nivel de acceso a
                                                 if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
                                             ?>  
@@ -173,6 +180,7 @@ $resultado = $mysqli->query($sql);
                 $('#PresentM').val(datos[5]);
                 $('#PlatM').val(datos[6]);
                 $('#PrecM').val(datos[7]);
+                $('#ProveM').val(datos[8]);
 
             });
         });
