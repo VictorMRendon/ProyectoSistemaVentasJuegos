@@ -1,19 +1,8 @@
 <!--Modal de vista -->
 
-    <?php
-    
-        $where="Nombre=$nombreSesionActiva";
-        $sql= "select * from empleados where Nombre=$nombreSesionActiva";
-        
-        $resultado = $mysqli->query($sql);
-        while($row= $resultado->fetch_assoc()) {
-            $id= $row['idEmpleado'];
-        }
-    ?>
-        
 <div id="viewDatos" class="modal fade" tabindex="-1" aria-hidden="true" aria-labelledby="modalTitulo" >
         <div class="modal-dialog w-75 modal-center">
-            <div class="modal-content">   
+            <div class=" modal-content">   
                 <div class="modal-header alert-info" >
                     <h2 class="mx-auto display-7 font-weight-bold modal-title" id="modalTitulo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
@@ -29,83 +18,92 @@
 
                 </div>
                  <!-- -->
-                <div class="modal-boddy">
+                <div class="p-3 modal-boddy">
                     
-                    <form class=" needs-validation "  novalidate method="POST" action="../scrips/AddEmpleado.php"> <!-- Formulario -->
-                    <?php//  ?>
-                        <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
-                        <input type="text" id="idEmpleado" name="idEmpleado" value="1">
-                        <h3><?php echo $id?></h3>
+                    <form class=" needs-validation "  novalidate method="POST" action="../MenuPrincipal/principal.php"> <!-- Formulario -->
 
-                        <div class="form-group w-75 mx-auto"> <!-- Nombre-->
-                            <label for="Nombre" class="label font-weight-bold">Nombre(s):</label>
-                            <input type="text" class="form-control" id="NomEmpleado" name="Nombre" placeholder="Juan Pablo" autofocus required>
-                        </div>
+                            <!-- No se muestra el imput, solo es para recibir y mandar el id del usuario-->
+                            <input type="hidden" id="idEmpleadoM" name="idEmpleado" value="1">
+                            <?php
+                                    $inc= include("../scrips/conet.php");
+                                    if($inc){
+                                        $sql= "select * from empleados where Nombre = '$nombreSesionActiva'";           
+                                        $resultado2 = mysqli_query($conex,$sql);
+                                        if($resultado2){
+                                            while($row= $resultado2->fetch_array()) {
+                                                $id = $row['idEmpleado'];
+                                                $Nombre=$row['Nombre'];
+                                                $Apellidos=$row['Apellidos'];
+                                                $Fecha=$row['FechaNacimiento'];
+                                                $Sexo=$row['Sexo'];
+                                                $Tel=$row['Telefono'];
+                                                $Direc=$row['Direccion'];
+                                                $NivAcc=$row['NivelAcceso']; 
 
-                        <div class="form-group w-75 mx-auto"> <!-- Apellidos -->
-                            <label for="Nombre" class="label font-weight-bold">Apellidos:</label>
-                            <input type="text" class="form-control" id="ApellidosClienteM" name="Apellidos" placeholder="Hernandez Garcia" autofocus required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese apellidos válido.</div>
-                        </div>
+                                                if($Sexo=='F'){$Genero="Femenino";}
+                                                else{$Genero="Masculino";}
 
-                        <div class="form-group w-75 mx-auto"> <!-- Fecha Nacimiento -->
-                            <label for="Fecha de Nacimiento" class="label font-weight-bold">Fecha de Nacimiento:</label>
-                            <input type="date" class="form-control" id="FechanNaciM" name="FechaNaci">
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Fecha inválida.</div>
-                        </div>
+                                                switch($NivAcc){
+                                                    case 1: $Puesto="Administrador"; break;
+                                                    case 2: $Puesto="Sub Administrador"; break;
+                                                    case 3: $Puesto="Gerente"; break;
+                                                    case 4: $Puesto="Cajero"; break;
+                                                }
+                                                ?>
+                                                <div>
+                                                    <div class="form-group p-1 w-25 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Id:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $id ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Nombre:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Nombre ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Apellidos:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Apellidos ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Fecha de nacimiento:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Fecha ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Genero:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Genero ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Teléfono:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Tel ?>" disabled>                                                
+                                                    </div>
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Dirección:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Direc ?>" disabled>                                                
+                                                    </div>
 
-                            <div class="w-50 mx-auto"> <!-- Caja de opciones -->
-                                <label for="Nivel de Acceso" class="font-weight-bold">Género:</label>
-                                <select name="Género" id="GéneroM" class="custom-select form-select-lg mb-2" required>
-                                    <option selected disabled>Escoja una opción...</option>
-                                    <option value="M">Masculino</option>
-                                    <option value="F">Femenino</option>
-                                </select>
-                                <div class="valid-feedback">Verificado</div>
-                                <div class="invalid-feedback">Escoja una opción.</div>
-                            </div> 
+                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                        <label for="Nombre" class="label font-weight-bold">Nivel de Acceso:</label>
+                                                        <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Puesto ?>" disabled>                                                
+                                                    </div>                                            
+                                                </div>     
+                                                <?php         
+                                            }
+                                        }
 
-                        <div class="form-group w-25 mx-auto"> <!-- Telefono -->
-                            <label for="Telefono" class="label font-weight-bold">Teléfono:</label>
-                            <input type="tel" class="form-control" id="TelefonoM" name="Telefono" placeholder="8671224498" required maxlength="10">
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Número inválido.</div>
-                        </div>
+                                    }
+                                        
+                                        
+                            ?>                   
 
-                        <div class="form-group w-75 mx-auto"><!-- Direccion -->
-                            <label for="Direccion" class="label font-weight-bold">Dirección:</label>
-                            <input type="text" class="form-control" id="DireccionM" name="Direccion" placeholder="C. Palmera 5554, Col. El Nogal" required>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Ingrese una dirección válida.</div>
-                        </div>
+                            <div class="form-group text-center p-3"> <!-- Btn -->
+                                <button type="button" class="btn btn-outline-primary  font-weight-bold mt-1" data-bs-dismiss="modal" >Regresar</button>
+                            </div>
 
-                        <!-- -->
-                        <div class="w-50 mx-auto"> <!-- Caja de opciones -->
-                            <label for="Nivel de Acceso" class="font-weight-bold">Nivel de Acceso:</label>
-                            <select name="NivelAcc" id="NivelAccessoM" class="custom-select form-select-lg mb-2" required>
-                                <option selected disabled>Escoja una opción...</option>
-                                <option value="1">Administrador</option>
-                                <option value="2">Sub Administrador</option>
-                                <option value="3">Gerente</option>
-                                <option value="4">Cajero</option>
-                            </select>
-                            <div class="valid-feedback">Verificado</div>
-                            <div class="invalid-feedback">Escoja una opción.</div>
-                        </div>
-
-                        <div class="form-group text-center"> <!-- Btn -->
-                            <button class="btn btn-outline-primary  font-weight-bold mt-1" type="submit" id="Enviar" name="Enviar">Enviar</button>
-                        </div>
-                        <?php //}?>
-                        </form>
-                    </p>
+                    </form>
                 </div>
 
-                <div class="modal-footer">                   
+                <!-- <div class="modal-footer">                   
                     <button type="button" class="btn btn-outline-danger btn-sm " data-bs-dismiss="modal" >Cancelar</button>
-                </div>
+                </div> -->
             </div>
         </div>
 

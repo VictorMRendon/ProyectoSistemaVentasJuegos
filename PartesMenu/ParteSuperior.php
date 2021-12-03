@@ -17,6 +17,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js" integrity="sha512-nnzkI2u2Dy6HMnzMIkh7CPd1KX445z38XIu4jG1jGw7x5tSL3VBjE44dY4ihMU1ijAQV930SPM12cCFrB18sVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <?php include('../Modales/PerfilModal.php')?>
+
     </head>
 
 
@@ -27,7 +29,8 @@
             <a class="navbar-brand ps-3" href="principal.php">Sistema de ventas</a>
             <!-- Icono para desplegar barra lateral-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            
+           
+
             <!-- Icono de usuario-->
             <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
                 <li class="nav-item dropdown">
@@ -36,7 +39,9 @@
                     <i class="fas fa-user fa-fw"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="../MenuPrincipal/MainPerfilEmpleado.php">Ver perfil</a></li>
+
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#viewDatos" >Ver perfil</a></li>
+                        
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="../scrips/LoginOut.php">Salir</a></li>
                     </ul>
