@@ -10,7 +10,7 @@
 
 
         function TraerDatosGraficoBar(){
-            $sql = "CALL SP_DATOSGTAFICOS_BAR";//SELECT * FROM productos  //CALL SP_DATOSGRAFICOS_BAR
+            $sql = "CALL SP_DATOSGRAFICOS_BAR";//SELECT * FROM productos  //CALL SP_DATOSGRAFICOS_BAR
             $arreglo = array();
 
             if ($consulta = $this->conexion->conexion->query($sql)){
