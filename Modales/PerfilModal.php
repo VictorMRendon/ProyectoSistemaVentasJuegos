@@ -75,7 +75,7 @@
                                                         <label for="Nombre" class="label font-weight-bold">Teléfono:</label>
                                                         <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Tel ?>" disabled>                                                
                                                     </div>
-                                                    <div class="form-group p-1 w-50 mx-auto"> <!-- Nombre-->
+                                                    <div class="form-group p-1 w-75 mx-auto"> <!-- Nombre-->
                                                         <label for="Nombre" class="label font-weight-bold">Dirección:</label>
                                                         <input type="text" class="form-control" id="NombreClienteM" name="Nombre" placeholder="<?php echo $Direc ?>" disabled>                                                
                                                     </div>

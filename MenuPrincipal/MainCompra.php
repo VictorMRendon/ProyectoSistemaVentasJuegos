@@ -16,6 +16,17 @@
 <?php
 $sql= "select * from factura";
 $resultado = $mysqli->query($sql);
+
+
+?>
+
+<?php
+$sql2 = "select p.CodigoBarras, p.Titulo, p.FechaPublicacion, p.Desarrolladora, p.Stock, p.Presentacion, p.Plataforma, p.Precio, p.idProveedor, prov.Nombre, prov.idProveedor
+         from productos p
+         inner join proveedores prov
+         on p.idProveedor = prov.idProveedor
+         order by p.Titulo asc";
+$resultado2 = $mysqli->query($sql2);
 ?>
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
@@ -36,119 +47,165 @@ $resultado = $mysqli->query($sql);
              <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
              <input type="hidden" id="idFactura" name="idFactura" value="1">
                 <div id="buscar">
-                    ds
+                    
                 </div>
-             <div class="form-group w-50 mx-auto"><!--Id de empleado -->
-                     <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
-                     <input type="password" class="form-control" id="IdEmpleado" name="IdEmpleado" placeholder="123456" autofocus required>
-                     <!-- Los warning -->
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese su ID de Empleado</div>
-                 </div>
 
-                 <div class="form-group w-50 mx-auto"><!-- Nombre de empleado -->
-                     <label for="NombreEmpleado" class="label font-weight-bold">Nombre de Empleado:</label>
-                     <input type="text" class="form-control" id="NombreEmpleado" name="NombreEmpleado" placeholder="Jose Daniel Salinas Tovar" required>
-                     <!-- Los warning -->
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese su Nombre</div>
-                 </div>
+                <?php //scrip para conseguir los datos del empleado actual
+                    $inc= include("../scrips/conet.php");                  
 
-                 
-                <!-- 
-                 <div class="form-group w-75 mx-auto"><-- Verificacion de miembro CON ELLO AL ACTIVARLO SE DEBE APARECER UN TXTBOX PARA PONER EL ID CLIENTE --
-                     <label for="validacion de miembro" class="label font-weight-bold">¿Es miembro el cliente?</label>
-                     
-                     <div class="form-group w-75 mx-auto">
-                        <input class="form-check-input" type="checkbox" value="Si" id="ValidarMiembro" name="ValidarMiembro">
-                        <label class="form-check-label" for="defaultCheck1">
-                            Sí es miembro.
-                        </label>
-                         <-- Los warning --
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">De click si es miembro</div>
-                </div>-->
+                    if($inc){
+                        $sqlEmpleado= "select * from empleados where Nombre = '$nombreSesionActiva'";           
+                        $resultEmpleado = mysqli_query($conex,$sqlEmpleado);
+                        if($resultEmpleado){
+                            while($row= $resultEmpleado->fetch_array()) {
+                                $id = $row['idEmpleado'];
+                                $Nombre=$row['Nombre'];
+                                $Apellidos=$row['Apellidos'];
+                                $NomCompelto = $Nombre." ".$Apellidos;
 
+                               // echo $NomCompelto;
 
-                 <!-- No se muestra el imput, solo es para recibir y mandar el id del cliente
-                 <input type="hidden" id="idCliente" name="idCliente" value="2">-->
+                               ?>
 
-                 <?php
-                   // date_default_timezone_set('America/Mexico_City');
-                   // $fecha=date("Y-m-d H:i:s");
-                 
-                 ?>
+                                <div class="form-group w-50 mx-auto "><!--Id de empleado -->
+                                    <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
+                                    <input type="password" class="form-control text-center" id="IdEmpleado" name="IdEmpleado" placeholder="<?php echo $id ?>" autofocus disabled>
+                                    <!-- Los warning
+                                    <div class="valid-feedback">Verificado</div>
+                                    <div class="invalid-feedback">Ingrese su ID de Empleado</div> -->
+                                </div>
+
+                                <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
+                                    <label for="NombreEmpleado" class="label font-weight-bold">Nombre de Empleado:</label>
+                                    <input type="text" class="form-control text-center" id="NombreEmpleado" name="NombreEmpleado" placeholder="<?php echo $NomCompelto ?>" disabled>
+                                    <!-- Los warning
+                                    <div class="valid-feedback">Verificado</div>
+                                    <div class="invalid-feedback">Ingrese su Nombre</div> -->
+                                </div>                               
+                               <?php
+                            }
+                        }
+                    }
+                
+                ?>
+             
+
                  <div class="form-group w-50 mx-auto"> <!-- Fecha Compra -->
                      <label for="Fecha de Compra" class="label font-weight-bold">Fecha de Compra:</label>
-                     <input type="datetime" class="form-control" id="Fecha" name=""  disabled>
-                     <!--input type="date" class="form-control" id="FechaCompra" name="FechaCompra"disabled value="<= $fecha?>">
-                     <input type="time" class="form-control" id="HoraCompra" name="HoraCompra"disabled-->
+                     <input type="datetime" class="form-control text-center" id="Fecha" name=""  disabled>
                      <div class="valid-feedback">Verificado</div>
                      <div class="invalid-feedback">Ingrese una fecha válida.</div>
                  </div>
 
-                 <div class="form-group w-50 mx-auto"> <!-- Codigo-->
-                     <label for="Nombre" class="label font-weight-bold">Código de barras:</label>
-                     <input type="text" class="form-control" id="CodigoBarras" name="Codigo" placeholder="0001" autofocus required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese un código válido.</div>
-                 </div>
+                 <div class="w-50 mx-auto"> <!-- Buscador de producto -->                        
+                            <label for="Plataforma" class="font-weight-bold">Buscar Título:</label>
+                            <select onchange="return buscar();" name="TituloS" id="TitS" class="custom-select form-select-lg mb-4" required>
+                                <option selected disabled>Escoja una opción...</option>
+                                <?php
+                                    // require_once("conexion.php");
+                                    // $sqlProv=mysqli_query($mysqli,"select idProveedor, Nombre from proveedores order by Nombre asc");
+                                    // $resultado=mysqli_num_rows($sqlProv);
 
-                 <div class="form-group w-25 mx-auto"> <!-- Cantidad -->
-                     <label for="Cantidad" class="label font-weight-bold">Cantidad:</label>
-                     <input type="number" class="form-control" id="Cantidad" name="Cantidad" placeholder="10" min="1" max="99" required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de cantidad.</div>
-                 </div>
+                                    $inc= include("../scrips/conet.php");
+                                    if($inc){
+                                       
+                                        $sqlProducto= "select CodigoBarras, Titulo, Precio from productos order by Titulo asc";           
+                                        $resultado2 = mysqli_query($conex,$sqlProducto);
+                                        if($resultado2){
+                                            while($row= $resultado2->fetch_array()) {
+                                                $CodBarras = $row['CodigoBarras'];
+                                                $Nombre=$row['Titulo'];
+                                                ?>
+                                            <option  value="<?php echo $CodBarras;?>" > <?php echo $Nombre;?> </option>
+                                        <?php
+                                            }
+                                            if(isset($_GET['opcion'])){
+                                                $opcion = $_GET['opcion'];
+                                                $sqlProducto = "select * from productos where CodigoBarras = $opcion";
+                                                $resultProducto= mysqli_query($conex,$sqlProducto);
+                                                if($resultProducto){
+                                                    while($row= $resultProducto->fetch_array()){
+                                                        $codBar =$row['CodigoBarras'];
+                                                        $Tit=$row['Titulo'];
+                                                        $Precio=$row['Precio'];
+                                                    }
+                                                }                                                
+                                            }
+                                        }
 
-                 <div class="form-group w-50 mx-auto"> <!-- Nombre del producto vendido-->
-                     <label for="Nombre" class="label font-weight-bold"> Título: </label>
-                     <input type="text" class="form-control" id="Titulo" name="TituloJuego" placeholder="Star Wars" required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese un título válido.</div>
-                 </div>
-
-                 <div class="form-group w-50 mx-auto"> <!-- Precio -->
-                     <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                     <input type="number" class="form-control" id="Precio" name="Precio" placeholder="200.99" min="1" max="99" step="0.01" required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
-                 </div>                
-
-                 <div class="form-group w-50 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
-                     <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
-                     <input type="number" class="form-control" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" step="0.01" required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de Importe.</div>
-                 </div>
-
-                 <div class="form-group w-50 mx-auto"> <!-- Pago -->
-                     <label for="Pago" class="label font-weight-bold">Pago:</label>
-                     <input type="number" class="form-control" id="Pago" name="Pago" placeholder="750.59" min="1" max="9999" step="0.01"required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
-                 </div>
-
-                 <!-- <div class="form-group w-25 mx-auto"> 
-                     <label for="IVA" class="label font-weight-bold">IVA:</label>
-                     <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" step="0.01"  required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de IVA.</div>
-                 </div> -->
-
+                                    }
+                                ?>
+                        
+                            </select>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Escoja una opción.</div>
+                        </div>                               
                  
 
-                 <div class="form-group w-50 mx-auto"> <!-- Cambio -->
-                     <label for="Cambio" class="label font-weight-bold">Cambio:</label>
-                     <input type="number" class="form-control" id="Cambio" name="Cambio" placeholder="500.70" min="1" max="9999" step="0.01" required>
-                     <div class="valid-feedback">Verificado</div>
-                     <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
-                 </div>
-                 
+                     
+                        <div class="form-group p-3 w-50 mx-auto"> <!-- Codigo-->
+                           <label for="Nombre" class="label font-weight-bold">Código de barras:</label>
+                            <input type="text" class="form-control text-center" id="CodigoBarras" name="Codigo" value="<?php echo $codBar; ?>" autofocus required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese un código válido.</div>
+                        </div>
 
-                 <div class="form-group text-center"> <!-- Btn -->
-                     <button class="mt-3 btn btn-outline-primary btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
-                 </div>
+                        <div class="form-group w-50 mx-auto"> <!-- Nombre del producto vendido-->
+                            <label for="Nombre" class="label font-weight-bold"> Título: </label>
+                            <input type="text" class="form-control text-center" id="Titulo" name="TituloJuego" value="<?php echo $Tit; ?>" placeholder="Star Wars" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese un título válido.</div>                                                                            
+                        </div>
+
+                        <div class="form-group w-50 mx-auto"> <!-- Precio -->
+                            <label for="Nombre" class="label font-weight-bold">Precio:</label>
+                            <input type="number" class="form-control text-center" id="Precio" name="Precio" value="<?php echo $Precio; ?>" placeholder="200.99" min="1" max="99" step="0.01" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
+                        </div>  
+
+                        <div class="form-group w-25 mx-auto"> <!-- Cantidad -->
+                            <label for="Cantidad" class="label font-weight-bold">Cantidad:</label>
+                            <input type="number" class="form-control text-center" id="Cantidad" name="Cantidad" placeholder="10" min="1" max="99" required>
+                            <div class="valid-feedback">Verificado</div>
+                            <div class="invalid-feedback">Ingrese una cantidad válida de cantidad.</div>
+                        </div>
+
+                                                            <div class="form-group w-50 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
+                                                                <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
+                                                                <input type="number" class="form-control text-center" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" step="0.01" required>
+                                                                <div class="valid-feedback">Verificado</div>
+                                                                <div class="invalid-feedback">Ingrese una cantidad válida de Importe.</div>
+                                                            </div>
+
+                                                            <div class="form-group w-50 mx-auto"> <!-- Pago -->
+                                                                <label for="Pago" class="label font-weight-bold">Pago:</label>
+                                                                <input type="number" class="form-control text-center" id="Pago" name="Pago" placeholder="750.59" min="1" max="9999" step="0.01"required>
+                                                                <div class="valid-feedback">Verificado</div>
+                                                                <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
+                                                            </div>
+
+                                                            <!-- <div class="form-group w-25 mx-auto"> 
+                                                                <label for="IVA" class="label font-weight-bold">IVA:</label>
+                                                                <input type="number" class="form-control" id="IVA" name="IVA" placeholder="16%" step="0.01"  required>
+                                                                <div class="valid-feedback">Verificado</div>
+                                                                <div class="invalid-feedback">Ingrese una cantidad válida de IVA.</div>
+                                                            </div> -->
+
+                                                            
+
+                                                            <div class="form-group w-50 mx-auto"> <!-- Cambio -->
+                                                                <label for="Cambio" class="label font-weight-bold">Cambio:</label>
+                                                                <input type="number" class="form-control text-center" id="Cambio" name="Cambio" placeholder="500.70" min="1" max="9999" step="0.01" required>
+                                                                <div class="valid-feedback">Verificado</div>
+                                                                <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
+                                                            </div>
+                                                            
+
+                                                            <div class="form-group text-center"> <!-- Btn -->
+                                                                <button class="mt-3 btn btn-outline-primary btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                                                            </div>                                     
+                 
                  
              </form>
          </div>
@@ -176,9 +233,9 @@ $resultado = $mysqli->query($sql);
                                             <th>Nombre del empleado</th>
                                             <th>Fecha</th>
                                             <th>Código de barras</th>
-                                            <th>Cantidad</th>
                                             <th>Título</th>                                            
                                             <th>Precio</th>
+                                            <th>Cantidad</th>
                                             <th>Importe total</th>
                                             <th>Pago</th>
                                             <!-- <th>IVA</th> -->
@@ -202,9 +259,9 @@ $resultado = $mysqli->query($sql);
                                                 <td><?php echo $row['NombreEmpleado']?></td>
                                                 <td><?php echo $row['Fecha']?></td>
                                                 <td><?php echo $row['CodigoBarras']?></td>
-                                                <td><?php echo $row['Cantidad']?></td>
                                                 <td><?php echo $row['Titulo']?></td>
                                                 <td><?php echo $row['Precio']?></td>
+                                                <td><?php echo $row['Cantidad']?></td>
                                                 <td><?php echo $row['ImporteTotal']?></td>
                                                 <td><?php echo $row['Pago']?></td>
                                                 <!-- <td><php echo $row['IVA']?></td> -->
@@ -229,24 +286,6 @@ $resultado = $mysqli->query($sql);
                                             </tr>
                                        <?php }?>
                                     </tbody>
-
-                                    <!--tfoot> <!- Pie de la tabla--
-                                        <tr>
-                                            <th>idFactua</th>
-                                            <th>idEmpleado</th>
-                                            <th>Nombre del empleado</th>
-                                            <th>Fecha</th>
-                                            <th>Código de barras</th>
-                                            <th>Cantidad</th>
-                                            <th>Título</th>                                            
-                                            <th>Precio</th>
-                                            <th>Importe total</th>
-                                            <th>Pago</th>
-                                            <th>IVA</th>
-                                            <th>Cambio</th>
-                                            <th>idCliente</th>
-                                        </tr>
-                                    </tfoot-->
                                     
                                 </table>
                             </div>
@@ -317,23 +356,14 @@ $resultado = $mysqli->query($sql);
         
     </script>
 
-<script>
+<script type="text/javascript">
         
         //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
-        $(document).ready( function(){
-            $('.deletebtn').on('click',function(){
-
-                $('#deleteFactura').modal('show');
-                
-                $tr=$(this).closest('tr');
-                var datos = $tr.children("td").map(function(){
-                    return $(this).text();
-                }).get();
-                console.log(datos);
-
-                $('#idFacturaM').val(datos[0]);
-            });
-        });
+        function buscar(){
+            var opcion = document.getElementById('TitS').value;
+            window.location.href='http://localhost/ProyectoSistemaVentasJuegos/MenuPrincipal/MainCompra.php?opcion='+opcion;
+            //alert(opcion);
+        }
 
 </script>
 <!-- Fin del formulario-->

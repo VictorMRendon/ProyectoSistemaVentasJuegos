@@ -6,9 +6,9 @@
     date_default_timezone_set('America/Mexico_City');
     $Fecha=date("Y-m-d H:i:s");
     $Codigo=$_POST['Codigo'];
-    $Cantidad=$_POST['Cantidad'];
     $Titulo=$_POST['TituloJuego'];
     $Precio=$_POST['Precio'];
+    $Cantidad=$_POST['Cantidad'];
     $Importe=$_POST['Importe'];
     $Pago=$_POST['Pago'];
     $IVA=$_POST['IVA'];
