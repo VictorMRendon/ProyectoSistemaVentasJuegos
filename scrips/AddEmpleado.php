@@ -14,6 +14,6 @@
 
     if($resultado)
     { header("Location: ../MenuPrincipal/MainEmpleados.php"); }
-    else { echo "Error al registrar."; }
+    else { echo '<script>alert("Error al registrar.");</script>';}
     
 ?>
