@@ -42,20 +42,19 @@
                 $resActu=$mysqli->query($sqlActualizar);
     
                 if($resActu){
-                    echo "Se actualizo el stock correctamente.";
+                    //echo "Se actualizo el stock correctamente.";
                     $sql = "insert into factura (idEmpleado, NombreEmpleado, Fecha, CodigoBarras,Cantidad,Titulo,Precio,ImporteTotal,Pago,IVA,Cambio) values ('$idEmpleado','$NomEmpleado','$Fecha','$Codigo', '$Cantidad', '$Titulo', '$Precio', '$Importe', '$Pago', '$IVA', '$Cambio')";
                     $resultado = $mysqli->query($sql);
         
                     if($resultado)
                     { header("Location: ../MenuPrincipal/MainCompra.php"); }
-                    else { echo "Error al registrar."; }
+                    else { echo '<script >alert("Error al registrar.");</script>';}
                 }
             }
+            else{  echo '<script>alert("No hay inventario sufuciente.");</script>'; }
 
         }
-        else{
-            echo "No hay inventario sufuciente.";
-        }
+       else{  echo '<script>alert("No hay inventario sufuciente.");</script>'; }
         
         
 

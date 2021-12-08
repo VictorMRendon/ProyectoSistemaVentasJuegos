@@ -191,7 +191,7 @@ $Precio=" ";
 
                                                             <div class="form-group w-50 mx-auto"> <!-- Cambio -->
                                                                 <label for="Cambio" class="label font-weight-bold">Cambio:</label>
-                                                                <input type="number" class="form-control text-center" id="Cambio" name="Cambio" min="0" max="9999" step="0.01" >
+                                                                <input type="number" class="form-control text-center" id="Cambio" name="Cambio" min="0" max="99999" step="0.01" >
                                                             </div>
                                                             
 

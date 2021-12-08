@@ -9,5 +9,5 @@ $sqlActualizar="update productos set stock = $Stock where CodigoBarras = $Codigo
 $resActu=$mysqli->query($sqlActualizar);
 if($resActu)
     { header("Location: ../MenuPrincipal/MainInventario.php"); }
-    else { echo "Error al actualizar inventario."; }
+    else { echo '<script >alert("Error al actualizar inventario.");</script>';}
 ?>

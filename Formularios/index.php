@@ -38,7 +38,7 @@ if($_POST)
               
         }
     }
-    else { echo "No existe el usuario"; }
+    else { echo '<script >alert("No existe el usuario");</script>';}
 }
 
 ?>
