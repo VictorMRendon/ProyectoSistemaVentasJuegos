@@ -354,7 +354,7 @@ $Precio=" ";
         //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
         function buscar(){
             var opcion = document.getElementById('TitS').value;
-            window.location.href='http://localhost/ProyectoSistemaVentasJuegos/MenuPrincipal/MainCompra.php?opcion='+opcion;
+            window.location.href='http://localhost:82/ProyectoSistemaVentasJuegos/MenuPrincipal/MainCompra.php?opcion='+opcion;
             //alert(opcion);
         }
 
