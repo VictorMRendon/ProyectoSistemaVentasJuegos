@@ -30,7 +30,7 @@
 
                         <div class="w-50 mx-auto"> <!-- Proveedor -->                        
                             <label for="Plataforma" class="font-weight-bold">Proveedor:</label>
-                            <select name="Prov" id="ProvM" class="custom-select form-select-lg mb-4" required>
+                            <select name="Prov" id="ProveeM" class="custom-select form-select-lg mb-4" required>
                         
                                 <?php
                                     // require_once("conexion.php");

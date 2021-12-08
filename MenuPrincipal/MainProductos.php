@@ -75,6 +75,7 @@ $resultado = $mysqli->query($sql2);
                                             <th>Plataforma</th>
                                             <th>Precio</th>
                                             <th>Proveedor</th>
+                                            <th>Clave del Proveedor</th>
                                             <?php //Para mostrar secciones segun el nivel de acceso a
                                                 if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
                                             ?>     
@@ -98,6 +99,7 @@ $resultado = $mysqli->query($sql2);
                                                 <td><?php echo $row['Plataforma']?></td>
                                                 <td><?php echo $row['Precio']?></td>
                                                 <td><?php echo $row['Nombre']?></td>
+                                                <td><?php echo $row['idProveedor']?></td>
                                                 <?php //Para mostrar secciones segun el nivel de acceso a
                                                 if($NivelAccesoActivo==1 || $NivelAccesoActivo==2 || $NivelAccesoActivo==3){
                                             ?>  
@@ -180,7 +182,7 @@ $resultado = $mysqli->query($sql2);
                 $('#PresentM').val(datos[5]);
                 $('#PlatM').val(datos[6]);
                 $('#PrecM').val(datos[7]);
-                $('#ProveM').val(datos[8]);
+                $('#ProveeM').val(datos[9]);
 
             });
         });
