@@ -24,7 +24,7 @@
                     <form class=" needs-validation"  novalidate method="POST" action="../scrips/DeleteFactura.php"> <!-- Formulario -->
 
                          <!-- No se muestra el imput, solo es para recibir y mandar el id del factura-->
-                        <input type="hidden" id="idFacturaM" name="idFactura" value="1">
+                        <input type="hidden" id="idFacM" name="idFactura" value="1">
 
 
                         <h4 class="text-center">¿Está seguro de eliminar el registro?</h4>
