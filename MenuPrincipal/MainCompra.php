@@ -154,28 +154,28 @@ $Precio=" ";
 
                         <div class="form-group w-50 mx-auto"> <!-- Precio -->
                             <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                            <input type="number" class="form-control text-center" id="Precio" name="Precio" value="<?php echo $Precio; ?>" placeholder="200.99" min="1" max="9999" step="00000.01" required>
+                            <input type="number" class="form-control text-center" id="Precio" name="Precio" value="<?php echo $Precio; ?>" placeholder="200.99" min="1" max="9999" step="00000.01" required oninput="calcularImporte()"> 
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
                         </div>  
 
                         <div class="form-group w-25 mx-auto"> <!-- Cantidad -->
                             <label for="Cantidad" class="label font-weight-bold">Cantidad:</label>
-                            <input type="number" class="form-control text-center" id="Cantidad" name="Cantidad" placeholder="10" min="1" max="99" required>
+                            <input type="number" class="form-control text-center" id="Cantidad" name="Cantidad" min="1" max="99" required oninput="calcularImporte()">
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese una cantidad válida de cantidad.</div>
                         </div>
 
                                                             <div class="form-group w-50 mx-auto"> <!-- Importe Total SERIA QUE SE CALCULARA AUTOMATICAMENTE-->
                                                                 <label for="Importe" class="label font-weight-bold ">Importe Total A Pagar:</label>
-                                                                <input type="number" class="form-control text-center" id="Importe" name="Importe" placeholder="350.90" min="1" max="9999" step="0.01" required>
+                                                                <input type="number" class="form-control text-center" id="Importe" name="Importe"  min="1" max="99999" step="0.01" required>
                                                                 <div class="valid-feedback">Verificado</div>
                                                                 <div class="invalid-feedback">Ingrese una cantidad válida de Importe.</div>
                                                             </div>
 
                                                             <div class="form-group w-50 mx-auto"> <!-- Pago -->
                                                                 <label for="Pago" class="label font-weight-bold">Pago:</label>
-                                                                <input type="number" class="form-control text-center" id="Pago" name="Pago" placeholder="750.59" min="1" max="9999" step="0.01"required>
+                                                                <input type="number" class="form-control text-center" id="Pago" name="Pago"  min="1" max="99999" step="0.01"required oninput="calcularImporte()">
                                                                 <div class="valid-feedback">Verificado</div>
                                                                 <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
                                                             </div>
@@ -191,9 +191,7 @@ $Precio=" ";
 
                                                             <div class="form-group w-50 mx-auto"> <!-- Cambio -->
                                                                 <label for="Cambio" class="label font-weight-bold">Cambio:</label>
-                                                                <input type="number" class="form-control text-center" id="Cambio" name="Cambio" placeholder="500.70" min="1" max="9999" step="0.01" required>
-                                                                <div class="valid-feedback">Verificado</div>
-                                                                <div class="invalid-feedback">Ingrese una cantidad válida de Pago.</div>
+                                                                <input type="number" class="form-control text-center" id="Cambio" name="Cambio" min="0" max="9999" step="0.01" >
                                                             </div>
                                                             
 
@@ -358,6 +356,36 @@ $Precio=" ";
             var opcion = document.getElementById('TitS').value;
             window.location.href='http://localhost/ProyectoSistemaVentasJuegos/MenuPrincipal/MainCompra.php?opcion='+opcion;
             //alert(opcion);
+        }
+
+        
+
+</script>
+
+<script type="text/javascript">
+        
+        //Script para obtener el id, nombre, correo y Nivel de acceso para mostrar el mensaje de confirmacion y eliminarlo de la bd.
+        
+        function calcularImporte(){
+            
+                var intCantidad = parseFloat(document.getElementById("Cantidad").value),
+                    dblPrecio = parseFloat(document.getElementById("Precio").value)
+                    dblPago = parseFloat(document.getElementById("Pago").value),
+                    dblImporte = intCantidad * dblPrecio,
+                    dblCambio= dblPago - dblImporte ; 
+                    if(dblCambio<0){dblCambio*=-1} 
+                //     if(dblPago<dblImporte-1){alert('No se a intresado el pago requerido.');}
+                //     else{
+                //         document.getElementById("Importe").value = dblImporte;
+                // document.getElementById("Cambio").value = dblCambio;
+                //     }
+                document.getElementById("Importe").value = dblImporte;
+                 document.getElementById("Cambio").value = dblCambio;
+
+                    
+                
+
+            
         }
 
 </script>
