@@ -11,15 +11,56 @@
     $Cantidad=$_POST['Cantidad'];
     $Importe=$_POST['Importe'];
     $Pago=$_POST['Pago'];
-    $IVA=$_POST['IVA'];
+    //$IVA=$_POST['IVA'];
     $Cambio=$_POST['Cambio'];
 
+   // $sqlRevisarStock = "select * from productos where CodigoBarras = $Codigo and stock >= $Cantidad";
+    //$sqlRevisarStock2=mysqli_query("select * from productos where CodigoBarras = ".$Codigo." and stock >= ".$Cantidad or die(mysqli_error));
+  //  $resStock=$mysqli->query($sqlRevisarStock);
+    // if($resStock){
+    //     if($resStock->$mysqli_num_rows==0){
+    //         echo "NO hay suficiente stoc";
+    //     }
+        
+    // }
+        $sqlCantidadBD = "select Stock from productos where CodigoBarras = $Codigo";
+        $resCanticadBD= $mysqli->query($sqlCantidadBD);
 
-    $sql = "insert into factura (idEmpleado, NombreEmpleado, Fecha, CodigoBarras,Cantidad,Titulo,Precio,ImporteTotal,Pago,IVA,Cambio) values ('$idEmpleado','$NomEmpleado','$Fecha','$Codigo', '$Cantidad', '$Titulo', '$Precio', '$Importe', '$Pago', '$IVA', '$Cambio')";
-    $resultado = $mysqli->query($sql);
+        $stockActual=0;//Se obtiene el stock de la bd
+        if ($row=mysqli_fetch_array($resCanticadBD)){
+            $stockActual=$row[0];
+        }
+        //Si no excede el limite, efectua la compra
 
-    if($resultado)
-    { header("Location: ../MenuPrincipal/MainCompra.php"); }
-    else { echo "Error al registrar."; }
+        if ($stockActual!=0){
+            if($Cantidad<=$stockActual && $stockActual>-1){
+                $stockActual-= $Cantidad;
+    
+                $sqlActualizar="update productos set stock = $stockActual where CodigoBarras = $Codigo";
+    
+                echo $sqlActualizar;
+                $resActu=$mysqli->query($sqlActualizar);
+    
+                if($resActu){
+                    echo "Se actualizo el stock correctamente.";
+                    $sql = "insert into factura (idEmpleado, NombreEmpleado, Fecha, CodigoBarras,Cantidad,Titulo,Precio,ImporteTotal,Pago,IVA,Cambio) values ('$idEmpleado','$NomEmpleado','$Fecha','$Codigo', '$Cantidad', '$Titulo', '$Precio', '$Importe', '$Pago', '$IVA', '$Cambio')";
+                    $resultado = $mysqli->query($sql);
+        
+                    if($resultado)
+                    { header("Location: ../MenuPrincipal/MainCompra.php"); }
+                    else { echo "Error al registrar."; }
+                }
+            }
+
+        }
+        else{
+            echo "No hay inventario sufuciente.";
+        }
+        
+        
+
+    // public function actualizarStock($codBar, $cantiDescontar){
+        
+    // }
     
 ?>

@@ -17,17 +17,11 @@
 $sql= "select * from factura";
 $resultado = $mysqli->query($sql);
 
-
+$codBar =" ";
+$Tit=" ";
+$Precio=" ";
 ?>
 
-<?php
-$sql2 = "select p.CodigoBarras, p.Titulo, p.FechaPublicacion, p.Desarrolladora, p.Stock, p.Presentacion, p.Plataforma, p.Precio, p.idProveedor, prov.Nombre, prov.idProveedor
-         from productos p
-         inner join proveedores prov
-         on p.idProveedor = prov.idProveedor
-         order by p.Titulo asc";
-$resultado2 = $mysqli->query($sql2);
-?>
 <link rel="stylesheet" href="../css/bootstrap.min.css" >
 <!--<link rel="stylesheet" href="../Fondos/basico.css">-->
 
@@ -58,7 +52,7 @@ $resultado2 = $mysqli->query($sql2);
                         $resultEmpleado = mysqli_query($conex,$sqlEmpleado);
                         if($resultEmpleado){
                             while($row= $resultEmpleado->fetch_array()) {
-                                $id = $row['idEmpleado'];
+                                $idEm = $row['idEmpleado'];
                                 $Nombre=$row['Nombre'];
                                 $Apellidos=$row['Apellidos'];
                                 $NomCompelto = $Nombre." ".$Apellidos;
@@ -69,7 +63,7 @@ $resultado2 = $mysqli->query($sql2);
 
                                 <div class="form-group w-50 mx-auto "><!--Id de empleado -->
                                     <label for="IdEmpleado" class="label font-weight-bold">Id de Empleado:</label>
-                                    <input type="password" class="form-control text-center" id="IdEmpleado" name="IdEmpleado" placeholder="<?php echo $id ?>" autofocus disabled>
+                                    <input type="text" class="form-control text-center" id="IdEmpleado" name="IdEmpleado" value="<?php echo $idEm; ?>" autofocus >
                                     <!-- Los warning
                                     <div class="valid-feedback">Verificado</div>
                                     <div class="invalid-feedback">Ingrese su ID de Empleado</div> -->
@@ -77,7 +71,7 @@ $resultado2 = $mysqli->query($sql2);
 
                                 <div class="form-group w-75 mx-auto"><!-- Nombre de empleado -->
                                     <label for="NombreEmpleado" class="label font-weight-bold">Nombre de Empleado:</label>
-                                    <input type="text" class="form-control text-center" id="NombreEmpleado" name="NombreEmpleado" placeholder="<?php echo $NomCompelto ?>" disabled>
+                                    <input type="text" class="form-control text-center" id="NombreEmpleado" name="NombreEmpleado" value="<?php echo $NomCompelto; ?>" >
                                     <!-- Los warning
                                     <div class="valid-feedback">Verificado</div>
                                     <div class="invalid-feedback">Ingrese su Nombre</div> -->
@@ -120,6 +114,7 @@ $resultado2 = $mysqli->query($sql2);
                                         <?php
                                             }
                                             if(isset($_GET['opcion'])){
+                                                
                                                 $opcion = $_GET['opcion'];
                                                 $sqlProducto = "select * from productos where CodigoBarras = $opcion";
                                                 $resultProducto= mysqli_query($conex,$sqlProducto);
@@ -159,7 +154,7 @@ $resultado2 = $mysqli->query($sql2);
 
                         <div class="form-group w-50 mx-auto"> <!-- Precio -->
                             <label for="Nombre" class="label font-weight-bold">Precio:</label>
-                            <input type="number" class="form-control text-center" id="Precio" name="Precio" value="<?php echo $Precio; ?>" placeholder="200.99" min="1" max="99" step="0.01" required>
+                            <input type="number" class="form-control text-center" id="Precio" name="Precio" value="<?php echo $Precio; ?>" placeholder="200.99" min="1" max="9999" step="00000.01" required>
                             <div class="valid-feedback">Verificado</div>
                             <div class="invalid-feedback">Ingrese una cantidad válida de Precio.</div>
                         </div>  
