@@ -6,7 +6,7 @@
     
         $sql = "DELETE FROM factura WHERE idFactura  = $idFac";
 
-        echo $sql;
+       // echo $sql;
         $resultado = $mysqli->query($sql);
 
         if($resultado)
