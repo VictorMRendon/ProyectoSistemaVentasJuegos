@@ -26,10 +26,17 @@ if($_POST)
             $_SESSION['nombre'] = $row['Nombre'];
             $_SESSION['NivelAcceso'] = $row['NivelAcceso'];
 
+            
+
             header("Location: ../MenuPrincipal/principal.php");
         }
         else 
-        {  echo "La contrasena no coincide.";  }
+        {   //echo "La contrasena no coincide.";
+            //echo '<script type="text/javascript">', 'alertaError();', '</script>';
+            echo '<script >alert("La contrasena no coincide.");</script>';
+            //echo '<script >alert(){ Swal.fire({  icon: '"error."', title: '".Oops..."', text: '"Something went wrong!."' });}</script>';
+              
+        }
     }
     else { echo "No existe el usuario"; }
 }
@@ -44,6 +51,8 @@ if($_POST)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" > 
+    <link rel="shortcut icon" href="../Fondos/icon.png">
+  
 </head>
 <body>
    <!--  -->
@@ -70,7 +79,7 @@ if($_POST)
                         </div>
 
                         <div class="form-group text-center"> <!-- Btn -->
-                            <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar">Enviar</button>
+                            <button class="btn btn-success btn-lg font-weight-bold" type="submit" id="Enviar" name="Enviar" alertaError()>Enviar</button>
                         </div>
                         
                     </form>
@@ -103,5 +112,6 @@ if($_POST)
     })
 })()
     </script>
+
 </body>
 </html>
