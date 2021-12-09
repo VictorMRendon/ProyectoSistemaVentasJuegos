@@ -127,7 +127,7 @@
                         cantidad.push(data[i][7]);//2
                         colores.push(colorRGB());
                     }                                       //horizontalBar
-                    CrearGrafico(titulo,cantidad,colores,'doughnut','GRAFICO COSTO DE LOS PRODUCTOS','graficodoughnut');
+                    CrearGrafico(titulo,cantidad,colores,'doughnut','COSTOS','graficodoughnut');
 
                 //}
 
@@ -171,7 +171,7 @@
                         cantidad.push(data[i][8]);//2
                         colores.push(colorRGB());
                     }
-                    CrearGrafico(titulo,cantidad,colores,'line','Ganancia total','graficoLine');
+                    CrearGrafico(titulo,cantidad,colores,'line','Ventas','graficoLine');
 
                 //} 
 
